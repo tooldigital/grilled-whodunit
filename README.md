@@ -1,4 +1,4 @@
-# google-whodunnit
+# Grilled: a Whodunit
 
 ![branding](./docs/poster.jpg)
 
