@@ -1,0 +1,22 @@
+{
+  "name": "grilled-whodunit-dialogflow-agent",
+  "version": "1.0.0",
+  "description": "Intent and entity generator for Dialogflow",
+  "main": "bin/dialogflow",
+  "scripts": {
+    "update:intents": "./bin/update-intents -i=./intents/index.js",
+    "update:intents:dev": "npm run update:intents -- -t=dev",
+    "update:intents:stage": "npm run update:intents -- -t=stage",
+    "update:intents:prod": "npm run update:intents -- -t=prod",
+    "update:entities": "./bin/dialogflow update entities -i=./entities/index.js",
+    "update:entities:dev": "npm run update:entities -- -t=dev",
+    "update:entities:stage": "npm run update:entities -- -t=stage",
+    "update:entities:prod": "npm run update:entities -- -t=prod"
+  },
+  "author": "Josh Beckwith <josh.beckwith@toolofna.com> (https://github.com/positlabs)",
+  "dependencies": {
+    "json2csv": "^4.0.0",
+    "request": "^2.83.0",
+    "yargs": "^11.0.0"
+  }
+}

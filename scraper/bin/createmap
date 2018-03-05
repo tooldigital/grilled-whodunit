@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+
+/**
+    
+    create mapping for responses and potentially actions
+
+*/ 
+
+// https://github.com/yargs/yargs/blob/HEAD/docs/examples.md
+const yargs = require('yargs')
+    .demandCommand(1)
+    .alias('a', 'action')
+    .alias('c', 'context')
+    .usage('Usage for single key: $0 <key> <type> --action=[true|false] --context=[true|false] ')
+    .usage('Usage for file: $0 <file>')
+
+const args = yargs.argv
+const request = require('request')
+const fs = require('fs')
+const path = require('path')
+const utils = require('./utils')
+const intentMethods = require('./intent-methods')
+const actionMethods = require('./action-methods')
+const contextMethods = require('./context-methods')
+const responseMethods = require('./response-methods')
+
+const key = args._[0]
+let inputfile
+if(key.indexOf('/') > -1) {
+    inputfile = key;
+}
+if(inputfile && !fs.existsSync(key)) return console.error(`${inputfile} not found`)
+
+if(inputfile) {
+    const inputIntents = utils.forceToArray(require(path.resolve(inputfile)))
+    intentMethods.batchAdd(inputIntents)
+    actionMethods.batchAdd(inputIntents)
+    contextMethods.batchAdd(inputIntents)
+    responseMethods.batchAdd(inputIntents)
+} else {
+    const type = (args._[1]  === 'general' ) ? 'general' : 'interrogation'
+    const action = false || args.action
+    const context = false || args.context
+
+    console.log(key, type, action, context)
+    intentMethods.add(key)
+    if(action) actionMethods.add(key)
+    if(context) contextMethods.add(key)
+}
+

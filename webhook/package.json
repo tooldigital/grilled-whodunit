@@ -1,0 +1,30 @@
+{
+  "name": "grilled-whodunit-webhook",
+  "version": "1.0.0",
+  "description": "Cloud function for Dialogflow fulfillment",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gcloud beta functions deploy $NAME --trigger-http --stage-bucket whodunnit",
+    "deploy:dev": "NAME=devhttp npm run deploy",
+    "deploy:stage": "NAME=stagehttp npm run deploy",
+    "deploy:prod": "NAME=http npm run deploy",
+    "logs": "gcloud beta functions logs read",
+    "logs:dev": "npm run logs -- devhttp",
+    "logs:stage": "npm run logs -- stagehttp",
+    "logs:prod": "npm run logs -- http",
+    "local": "npm run local:server && npm run local:tunnel:prod && pm2 logs",
+    "local:server": "pm2 start ./dev/server.js --watch",
+    "local:tunnel:prod": "pm2 start ./dev/localtunnel.sh -- whodunnitproject",
+    "local:tunnel:dev": "pm2 start ./dev/localtunnel.sh -- whodunnitdev",
+    "local:tunnel:stage": "pm2 start ./dev/localtunnel.sh -- whodunnitstage"
+  },
+  "dependencies": {
+    "actions-on-google": "^1.8.1",
+    "cheerio": "^1.0.0-rc.2"
+  },
+  "devDependencies": {
+    "express": "^4.16.2",
+    "serverless-google-cloudfunctions": "^1.1.0",
+    "body-parser": "^1.18.2"
+  }
+}

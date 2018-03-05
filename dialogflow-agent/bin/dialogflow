@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+/**
+    
+    deploy objects to dialogflow
+
+*/ 
+
+// https://github.com/yargs/yargs/blob/HEAD/docs/examples.md
+const yargs = require('yargs')
+    .demandCommand(2)
+    .alias('i', 'input')
+    .alias('t', 'token')
+    .usage('Usage: $0 <operation> <endpoint> <optionalID> --input=[path] --token=[tokenName]')
+    .usage('Input js should be an array of objects')
+    .usage('Create access token files in .access_tokens directory. https://dialogflow.com/docs/reference/agent/')
+    .example('$0 create entities --input=path/to/entities.js --token=dev', 'create entities for dev app')
+    .example('$0 update intents -i=path/to/intents.js -t=prod', 'update intents for prod app')
+    .example('$0 get intents 05b02338-63b5-4a86-a08e-409ef5b5f208', 'get an intent from dev app')
+    .example('$0 get intents >> output.json', 'get all intents and write to a file')
+    .epilog('Created by Tool of North America')
+
+const path = require('path')
+const fs = require('fs')
+const run = require('./api').run
+
+const args = yargs.argv
+const command = args._[0] // create, update, get, delete
+const type = args._[1] // type of objects. e.g. entities, intents
+const id = args._[2] // uuid of object to update
+const operation = {
+    create: 'post',
+    update: 'put',
+    get: 'get',
+    delete: 'delete'
+}[command]
+
+const token = args.token || 'dev'
+const accessToken = fs.readFileSync(path.resolve(__dirname, `../.access_tokens/${token}`))
+
+var inputPath, input
+if(args.input){
+    inputPath = path.resolve(process.cwd(), args.input)
+    input = require(inputPath)
+}
+
+run(operation, type, {input, id, accessToken}).then(res => {
+    console.log(res)
+}).catch(e => {
+    console.error(e)
+})

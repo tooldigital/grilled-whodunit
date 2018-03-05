@@ -1,0 +1,10 @@
+{
+  "name": "grilled-whodunit",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/tooldigital/google-whodunnit.git",
+  "contributors": [
+    "Josh Beckwith <josh.beckwith@toolofna.com> (https://github.com/positlabs)",
+    "Ben Priddy <ben.priddy@toolofna.com> (https://github.com/benoftoolofna)"
+  ]
+}
