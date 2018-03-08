@@ -1,0 +1,23 @@
+{
+  "name": "grilled-whodunit-functions",
+  "description": "Cloud function for Dialogflow fulfillment",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "deploy:prod": "firebase deploy --only functions:https",
+    "deploy:stage": "firebase deploy --only functions:stagehttps",
+    "deploy:dev": "firebase deploy --only functions:devhttps",
+    "logs": "firebase functions:log",
+    "localtunnel:prod": "pm2 start ./dev/localtunnel.sh -- whodunnitproject",
+    "localtunnel:dev": "pm2 start ./dev/localtunnel.sh -- whodunnitdev",
+    "localtunnel:stage": "pm2 start ./dev/localtunnel.sh -- whodunnitstage"
+  },
+  "dependencies": {
+    "actions-on-google": "^1.8.1",
+    "cheerio": "^1.0.0-rc.2",
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1"
+  }
+}

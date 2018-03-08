@@ -3,7 +3,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 const utils = require('./utils')
-const intentKeyPath = path.resolve(__dirname, '../../webhook/src/intent-keys.js')
+const intentKeyPath = path.resolve(__dirname, '../../functions/src/intent-keys.js')
 const intentKeys = require(intentKeyPath)
 
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
         if(!list.forEach) return console.error('The input list must be structured as an array');
         let output = utils.buildUniqueKeys(list, intentKeys)
         output = JSON.stringify(output) .split('[').join('[\n\n\t').split(']').join('\n\n]').split(',').join(',\n\t')
-        fs.outputFile(intentKeyPath, output, (err) => {
+        fs.outputFile(path.resolve(__dirname, '../new_mappings/intent-keys.js'), output, (err) => {
             if (err) throw err
             console.log('A new intents file has been updated!')
         })

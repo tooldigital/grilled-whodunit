@@ -1,9 +1,9 @@
 const Intent = require('../intent')
-const intents = require('../../../webhook/src/intent-keys')
-const contexts = require('../../../webhook/src/context-keys')
-const actions = require('../../../webhook/src/action-keys')
-const suspects = require('../../../webhook/src/data/suspects')
-const keys = require('../../../webhook/src/intent-keys')
+const intents = require('../../../functions/src/intent-keys')
+const contexts = require('../../../functions/src/context-keys')
+const actions = require('../../../functions/src/action-keys')
+const suspects = require('../../../functions/src/data/suspects')
+const keys = require('../../../functions/src/intent-keys')
 const general = require('./general')
 const suspectIntents = {
 	[suspects.BRANDI]: require('./brandi'),

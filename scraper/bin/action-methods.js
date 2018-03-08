@@ -3,7 +3,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 const utils = require('./utils')
-const actionKeyPath = path.resolve(__dirname, '../../webhook/src/action-keys.js')
+const actionKeyPath = path.resolve(__dirname, '../../functions/src/action-keys.js')
 const actionKeys = require(actionKeyPath)
 
 module.exports = {

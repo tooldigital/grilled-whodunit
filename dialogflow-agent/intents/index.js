@@ -1,8 +1,8 @@
 const fs = require('fs')
 const util = require('util')
-const actions = require('../../webhook/src/action-keys')
-const intents = require('../../webhook/src/intent-keys')
-const contexts = require('../../webhook/src/context-keys')
+const actions = require('../../functions/src/action-keys')
+const intents = require('../../functions/src/intent-keys')
+const contexts = require('../../functions/src/context-keys')
 
 // assign entities to pull into example phrases
 const Intent = require('./intent')

@@ -1,4 +1,4 @@
-# Grilled Whodunit Privacy Policy
+# Grilled Murder Mystery Privacy Policy
 
 No personally identifiable information is collected. 
 

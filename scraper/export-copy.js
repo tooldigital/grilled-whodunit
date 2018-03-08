@@ -1,5 +1,5 @@
 const fs = require('fs')
-const suspects = require('./webhook/src/data/suspects')
+const suspects = require('../functions/src/data/suspects')
 
 // const intentsURL = './dialogflow-agent/intents/';
 // //intents
@@ -14,9 +14,9 @@ const suspects = require('./webhook/src/data/suspects')
 // 	}
 // }
 
-const responses = require('./webhook/src/data/responses/')
-const storyhints = require('./webhook/src/realizations_for_export')
-const fallbackhints = require('./webhook/src/data/responses/hints')
+const responses = require('../functions/src/data/responses/')
+const storyhints = require('../functions/src/realizations_for_export')
+const fallbackhints = require('../functions/src/data/responses/hints')
 
 let outputresponses = [],
 	outputstoryhints = [],

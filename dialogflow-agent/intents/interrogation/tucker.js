@@ -1,6 +1,6 @@
 //Tucker Interrogation
-const keys = require('../../../webhook/src/intent-keys')
-const contexts = require('../../../webhook/src/context-keys')
+const keys = require('../../../functions/src/intent-keys')
+const contexts = require('../../../functions/src/context-keys')
 const intents = {
 	[keys.TUCKER_WHOGIRLFRIEND]: {
 		userPhrases: [

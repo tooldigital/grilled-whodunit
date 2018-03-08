@@ -1,8 +1,8 @@
 //general intents
 const Intent = require('./intent')
-const actions = require('../../webhook/src/action-keys')
-const intents = require('../../webhook/src/intent-keys')
-const contexts = require('../../webhook/src/context-keys')
+const actions = require('../../functions/src/action-keys')
+const intents = require('../../functions/src/intent-keys')
+const contexts = require('../../functions/src/context-keys')
 const yesInputs = ['confirm', 'ok', 'of course', 'sure', 'I don’t mind', 'yes', 'that’s correct', 'I agree', 'do it', 'exactly', 'sounds good']
 const noInputs = ['not really', 'I don’t think so', 'not interested', 'definitely not', 'I don’t want that', 'no', 'thanks but no', 'I disagree', 'don’t do it']
 const helpInputs = ['What are the rules', 'How do I play', 'help', 'I need help', 'help me out', 'I’m not sure what to do', 'I don’t know what to say', 'I need a hint']
@@ -178,6 +178,8 @@ module.exports = {
 			'Question @suspect',
 			'Can we go back to @suspect',
 			'Can I talk to @suspect',
+			// 'Hey Google, Can I talk to @suspect',
+			// 'OK Google, talk to @suspect',
 		],
 		parameters: [{name: 'suspect'}],
 		contexts: [],

@@ -1,5 +1,5 @@
 const Entity = require('./entity')
-const suspects = require('../../webhook/src/data/suspects')
+const suspects = require('../../functions/src/data/suspects')
 module.exports = new Entity('suspect', [
 	{
 		value: suspects.TUCKER,

@@ -18,6 +18,7 @@ const token = args.token || 'dev'
 const accessToken = fs.readFileSync(`./.access_tokens/${token}`)
 const inputPath = path.resolve(process.cwd(), args.input)
 const input = require(inputPath)
+const mapper = require('../../scraper/bin/mapper')
 
 let requestEachIntent = (intents) => {
     let intentPromises = intents.map(intent => {
@@ -46,7 +47,7 @@ let processIntents = (intents) => {
     let cleanIntents = intents.map(cleanIntent)
     let processedIntents = combineIntents(input, cleanIntents)
     saveNewIntents(processedIntents.newIntents)
-    send(processedIntents.modifiedIntents).catch(e => console.error(e))
+    //send(processedIntents.modifiedIntents).catch(e => console.error(e)):  NOTE:  this tool only used for mapping questions created on dialogflow
 }
 
 const combineIntents = (toUpload, downloaded) => {
@@ -83,18 +84,24 @@ const saveNewIntents = (newIntents) => {
     const newIntentsCap = 'module.exports = '
     if(Object.keys(newIntents).length) {
         let fileText = `${newIntentsCap} ${JSON.stringify(newIntents)}`
-        fs.writeFile(path.resolve('./intents/new-intents.js'), fileText, (err) => {
+        fs.writeFile(path.resolve(__dirname, '../intents/new-intents.js'), fileText, (err) => {
             if (err) throw err
             console.log('The NEW INTENTS have been saved!')
+            createNewMappings()
         })
     }
 
-    let cm = path.resolve(__dirname, '../../scraper/bin/createmap')
-    exec(`${cm} ${path.resolve(__dirname, './intents/new-intents.js')}`, (err, stdout, stderr) => {
-            if (err) return console.error(err)
-            console.log(stdout)
-        }
-    )
+}
+
+const createNewMappings = () => {
+
+    // let cm = path.resolve(__dirname, '../../scraper/bin/createmap')
+    // exec(`${cm} ${path.resolve(__dirname, '../intents/new-intents.js')}`, (err, stdout, stderr) => {
+    //         if (err) return console.error(err)
+    //         console.log(stdout)
+    //     }
+    // )
+    mapper(path.resolve(__dirname, '../intents/new-intents.js'))
 }
 
 const send = (intents) => {

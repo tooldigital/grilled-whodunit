@@ -1,38 +1,42 @@
-# Grilled: a Whodunit
+# Grilled: Murder Mystery
 
 ![branding](./docs/poster.jpg)
 
 ## Concept
 
-This is a whodunnit murder mystery using a voice app interface (namely, Actions on Google). The user takes the role of the detective who's been called in to crack the case. There are 4 suspects, each with compelling motive to commit the crime. The goal is to interrogate each suspect and gather evidence to solve the murder.
+We wanted to create a deep and multifaceted experience that could showcase the SSML capabilities of Google Voice Assistant. So to do it, we created Grilled: A Whodunnit. It’s a murder mystery using a voice app interface (namely, Actions on Google). The user takes on the role of the detective who's been called in to crack the case. Along the way they have to interview 4 suspects, and each of them comes with their own compelling motive for committing the crime. The goal is to interrogate each suspect, gather evidence and ultimately solve the murder.
 
-## Execution
+![press charges](./docs/press-charges.gif)
 
-The user can ask literally any question, so how are you supposed to write against that? There is the brute-force approach where you write responses until your fingers fall off, but that's not sustainable! Our approach was to create a story with responses that lead the user organically into the next section of the story, and provide a safety net in case a user gets lost.
+## Writing the Story
 
-To visualize the story structure, we created mind maps.
+While you can script a murder mystery, it’s impossible to guess which questions users might ask. So how do you account for it? You could take a brute-force approach and write responses until your fingers bleed, but that's not sustainable (or even ethical). Instead, our approach creates a story with responses that leads the user organically from one question to the next, providing a safety net in case they get lost.
+
+We started out by visualizing the story, and interrogations, with mind maps. 
 
 ![mindmap](./docs/mindmap.png)
 
-### Commonly asked questions
-
-Commonly asked questions are low-hanging fruit. Start there.
+### Commonly Asked Questions
 
 > Where were you on the night of the murder?!
 
-Most people have a repetoire of interrogation questions that they know from TV crime drama, so that's the best place to start our story. We use these questions to respond with something that leads the user deeper into the story.
+Most people have seen enough TV crime dramas to have a repertoire of interrogation questions; asking suspects about their alibis, or even relationship with the victim. So that’s where we begin our story. From there, we respond in a way that leads the user deeper into the mystery. 
 
-> I was at home with my girlfriend...
+![constance](./docs/constance.gif)
 
-### Implicitly guided conversations
+### Implicitly Guided Conversations
 
-On the surface, the interrogation scenario is an open-ended conversation between the user and the suspect. However, we actually want to guide the user to ask about specific topics since that's how we tell the story.
+On the surface, the interrogation scenario is an open-ended conversation between the user and the suspect. However, we actually want to guide the user to ask about specific plot points that will eventually help them solve the murder.
 
-We wrote our responses with a template of **priming**, **informing**, and **leading**. Priming is a connective phrase that allows the user to get into "listening mode." Informing is where we give the response to the user's question, and leading is a way of guiding the user into asking about a particular subject. This structure helps our users remember what they heard, and suggests a relevant topic for the next query. 
+We wrote our responses with a loose template of **priming**, **informing**, and **leading**. Priming is a connective phrase that allows the user to get into "listening mode." Informing is where we give the response to the user's question, and leading is a way of guiding the user into asking about a particular subject. This structure helps our users remember what they heard, and suggests a relevant topic for the next query. 
+
+User
+
+> Who do you think killed Betsy?
 
 Brandi
 
-> None of us really know. It’s been that way since before even my father was born. You can ask my grandmother if you want.
+> I definitely didn’t do it. My grandmother hated her more than anyone.
 
 User
 
@@ -42,19 +46,83 @@ Or if they already know that it's Constance...
 
 > Let me talk to Constance
 
-### Hints
 
-Detective Hawkins is an impatient partner, so he steps in from time to time to give advice on how to steer the interrogation. This mechanic is our way of repairing the conversation when the user asks something irrelevant, or something we don't have a response for. 
+### Gracefully Repairing the Conversation
 
-For example, if the user asks "what channel was the tv show on?" the response wouldn't be driving the story to a meaningful place. When this happens, we have Hawkins jump in and guide the user back to a more productive line of questioning. 
+And in case the user gets stuck, they’re not alone. Police Chief Hawkins serves as their partner, stepping in from time to time to give advice on how to conduct the interrogation. This mechanic is our way of repairing the conversation when the user asks something irrelevant, or something we don't have a response for. 
 
-> Listen closely to the suspects' responses. Are their alibis all lining up?
+For example, if the user is drawing a blank and doesn’t respond, Hawkins jumps in and guides the user back to a more productive line of questioning. 
+
+> Listen closely to the suspects’ responses. Are they revealing information you want to ask follow-up questions on?
+
+#### Give Relevant Advice
+
+We realized early on that randomized hints don’t work very well. Sometimes the hint would point to a response the user already heard, and other times it would give the same hint in sequence. We needed some logic for determining how we should help the user, depending on where they were in the story. 
+
+1. Don’t give hints that point to responses that have already been heard.
+2. Don’t give the same hint twice in a row.
+3. If the user hears enough hints, guide them more directly toward responses that will help solve the case.
+
+
+### User Testing
+
+Testing the app was crucial, but of course we were all too close to the project to trust our results. So we pulled in friends and coworkers who weren’t familiar with the project. Our first test session went anything but smoothly; the users asked a plethora of questions that we hadn’t thought of. Some of them even tried making casual conversation with the suspects!
+
+> How are you doing?
+
+These sessions helped bolster our repertoire of inputs, informed the writing, and lead us to the **prime / inform / lead** technique.  We also found that we needed to preface testing sessions by telling users not to ask us questions about how to interact with the app. Otherwise, they would ask us for help as soon as they were confused. 
+
+Observing the users struggle through the early versions helped us restructure to make it easier to navigate the story. And it gave us suggestions on how to ease pain-points.
 
 # Tech
 
-This project uses [Dialogflow](https://dialogflow.com) for processing user inputs, and a NodeJS [Cloud Function](https://cloud.google.com/functions/) for determining responses. 
+This project uses [Dialogflow](https://dialogflow.com) for processing user inputs, and a NodeJS [Cloud Function](https://firebase.google.com/docs/functions/) for determining responses.
 
 The code was written in a few weeks on Mac, but could work on linux, or even Bash on Windows if you are feeling adventurous.
+
+## Approach
+
+The dialogflow.com site is great for some things, but it doesn’t expose the full range of functionality in the platform. For that, you have to use the API. We created a command-line interface that enabled us to quickly push updates after making changes to the code. 
+
+`dialogflow update intents --input=path/to/intents.json`
+
+Nobody likes writing json files. They are a pain, and don’t enforce validity of the structure. With this in mind, we created json builder classes. The code is much more compact, and default values are assigned where needed.
+
+```
+    let intent = new Intent(k)
+        .userPhrases(userPhrases)
+        .parameters(parameters.map((p) => {
+            return new Intent.Parameter(p.name, p.opts)
+        }))
+        .contexts(contexts)
+        .outputContexts(outputContexts)
+        .action(action)
+        .build()
+
+```
+
+## SSML (Speech-Synthesis Markup Language)
+
+We used SSML to create the voices for each character and play sounds.
+
+If you look at the [AOG SSML docs](https://developers.google.com/actions/reference/ssml), you won’t see the voice tag, but that is how we toggled between male and female voices. There are 4 combinations total (2 male, 2 female), so that gives us 4 characters out of the box.
+
+```
+<voice gender=”female” variant=”1”>Character 1</voice>
+<voice gender=”female” variant=”2”>Character 2</voice>
+<voice gender=”male” variant=”1”>Character 3</voice>
+<voice gender=”male” variant=”2”>Character 4</voice>
+```
+
+In order to impart some personality in our characters, we used the prosody tag. It enables us to modulate pitch and rate of speech. This is generally neat, but also we needed a 5th character!
+
+```
+<voice gender=”male” variant=”1”>
+    <prosody rate=“95%” pitch=”-8%”>
+        I am police chief Hawkins. Welcome to the case, detective.
+    </prosody>
+</voice>
+```
 
 ## Account setup
 
@@ -70,40 +138,44 @@ Create a directory dialogflow-agent/.access_tokens/ and add a file for each app 
 
 From the dialogflow-agent dir, run a specific version of the command `npm run update:{entities|intents}:{dev|stage|prod}` to publish objects to dialogflow.
 
+You can also use the dialogflow CLI directly. The command below gets all of the intents and writes them to a json file.
+
+`./dialogflow-agent/bin/dialogflow get intents -t=dev >> intents.json`
+
 ### The webhook
 
-Configure the gcloud CLI to use the Google cloud project that is linked to your Dialogflow agent. Run `gcloud init` to configure. 
-
-[Create a stage bucket](https://console.cloud.google.com/storage) for the deployment process. In webhook/package.json, replace the value of `--stage-bucket whodunnit` with the name of your bucket.
-
-Run `npm run deploy`, which is an alias for a gcloud command. When complete, it will show the url that the webhook was published to. Use this url in the [fulfillment](https://dialogflow.com/docs/fulfillment) section of Dialogflow.
+Run `npm run deploy:dev`, which is an alias for a firebase command. When complete, it will show the url that the function was published to. Use this url in the [fulfillment](https://dialogflow.com/docs/fulfillment) section of Dialogflow.
 
 
 ## Development
 
-There are two main sections in this project: the listener (Dialogflow agent), and the responder (the webhook). 
+There are two main sections in this project: the listener (Dialogflow agent), and the responder (the webhook).
 
-The Dialogflow generator is used to create intent and entity objects, and publish them to a Dialogflow agent. 
+The Dialogflow generator is used to create intent and entity objects, and publish them to a Dialogflow agent.
 
-The webhook code runs in a cloud function, and gets hit when a user interacts with the app.
+The webhook code runs in a firebase function, and gets hit when a user interacts with the app.
 
 ### Install dependencies
 
 - [Install NodeJS](https://nodejs.org/en/download/)
 - [Install PM2](http://pm2.keymetrics.io/)
-- [Install gcloud](https://cloud.google.com/sdk/downloads)
-- Run `npm install` in `webhook/` and `dialogflow-agent/`
+- Install firebase CLI. `npm i -g firebase-tools`
+- Run `npm install` in `functions/`, `dialogflow-agent/`, and `scraper/`
 
 ### Running the project locally
 
-In webhook/package.json, change the values passed to the localtunnel script (e.g. whodunnitdev) to something unique.
+In functions/package.json, change the values passed to the localtunnel script (e.g. whodunnitdev) to something unique.
 
-Start the dev environment by running `npm run local`. This will start a local server, expose a public url via localtunnel, and display a stream of logs.
+Start the dev environment by running `npm run serve`, then `npm run localtunnel:dev`. This will start a local server and expose a public url via localtunnel.
 
-The logs will show a url, which you will need to paste into the Dialogflow fulfillment url field.
+💥💥💥WARNING: using localtunnel exposes your server to the whole internet.💥💥💥
 
-`your url is: https://whodunnitdev.localtunnel.me`
+The output of serve will show a local url, and the output of localtunnel will show a remote url. Use the path of the local, combined with the base of the remote. You will need to paste this into the Dialogflow fulfillment url field.
 
 ![fulfillment](./docs/fulfillment.png)
 
 Dialogflow is a remote service, so you will need to deploy entities and intents before it will work in your local environment (see deployment section).
+
+
+
+

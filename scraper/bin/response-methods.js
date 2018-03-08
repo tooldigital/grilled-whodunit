@@ -3,7 +3,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 const utils = require('./utils')
-const responsesPath = path.resolve(__dirname, '../../webhook/src/data/responses')
+const responsesPath = path.resolve(__dirname, '../../functions/src/data/responses')
 const responses = require(responsesPath)
 //TODO: look through entire response tree to check if key exists
 
@@ -23,7 +23,7 @@ module.exports = {
         //             .split(']').join('\n\n]')
         //             .split(',').join(',\n\t')
         // let fileText = `//action keys\nconst utils = require('./utils');\nmodule.exports = utils.enumerate(${iOutput})`;
-        // fs.writeFile(path.resolve(__dirname, '../webhook/src/action-keys.js'), fileText, (err) => {
+        // fs.writeFile(path.resolve(__dirname, '../functions/src/action-keys.js'), fileText, (err) => {
         //     if (err) throw err;
         //     console.log('The intents file has been updated!');
         // });
