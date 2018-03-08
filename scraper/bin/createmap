@@ -1,18 +1,18 @@
 #!/usr/bin/env node
-
+/* global console */
 /**
-    
-    create mapping for responses and potentially actions
+	
+	create mapping for responses and potentially actions
 
 */ 
 
 // https://github.com/yargs/yargs/blob/HEAD/docs/examples.md
 const yargs = require('yargs')
-    .demandCommand(1)
-    .alias('a', 'action')
-    .alias('c', 'context')
-    .usage('Usage for single key: $0 <key> <type> --action=[true|false] --context=[true|false] ')
-    .usage('Usage for file: $0 <file>')
+	.demandCommand(1)
+	.alias('a', 'action')
+	.alias('c', 'context')
+	.usage('Usage for single key: $0 <key> <type> --action=[true|false] --context=[true|false] ')
+	.usage('Usage for file: $0 <file>')
 
 const args = yargs.argv
 console.log('create map')

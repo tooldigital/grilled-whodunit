@@ -48,7 +48,7 @@ const intents = {
 			'where you at @time last night',
 			'Where were you at the time of the fire?',
 		],
-		parameters: [ { name: 'time', opts:{ required: false , dataType: '@sys.time' }} ]
+		parameters: [{ name: 'time', opts: { required: false , dataType: '@sys.time' }}],
 	},
 
 	[keys.WHATRELATIONSHIPTOBETSY]: {
@@ -65,7 +65,7 @@ const intents = {
 			'Were you and @betsy friends?',
 			'Were you friends with @betsy',
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.HOWLONGKNOWBETSY]: {
@@ -73,7 +73,7 @@ const intents = {
 			'How long have you known @betsy',
 			'How long did you know @betsy',
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.ANGRYWITHBETSY]: {
@@ -85,7 +85,7 @@ const intents = {
 			'Did you hate @betsy',
 			'Do you hate @betsy',
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.DIDYOUKILLHER]: {
@@ -95,7 +95,7 @@ const intents = {
 			'Are you responsible for the murder?',
 			'Would you want @betsy dead?',
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.WHOKILLEDBETSY]: {
@@ -106,7 +106,7 @@ const intents = {
 			'What do you think happened to @betsy',
 			'Who could have killed @betsy',
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.BETSYDOSOMETHINGTOYOU]: {
@@ -114,7 +114,7 @@ const intents = {
 			'Did @betsy do something to you?',
 			'What did @betsy do to you?',
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.WHATRECIPE]: {
@@ -133,7 +133,7 @@ const intents = {
 			'Why did they hate each other?',
 			'Why did she hate @betsy',
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.WHATBETSYDOBRANDI]: {
@@ -141,7 +141,7 @@ const intents = {
 			'What did @betsy do to Brandi?',
 			'What did @betsy do to your daughter?',
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.WHENLASTSEEBETSY]: {
@@ -149,13 +149,13 @@ const intents = {
 			'When did you last see @betsy',
 			'Did you see @betsy yesterday?',
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.WHOBETSYHEADCHEF]: {
 		userPhrases: [
 			`Who was Betsy's head chef?`,
-			'Who was her head chef?'
+			'Who was her head chef?',
 		],
 	},
 
@@ -170,13 +170,13 @@ const intents = {
 			'how do you know @suspect',
 			'Do you know @suspect',
 		],
-		parameters: [ { name: 'suspect' } ],
-		outputContexts: [contexts.tellabout]
+		parameters: [{ name: 'suspect' }],
+		outputContexts: [contexts.tellabout],
 	},
 
 
-//////////////////////////////////////////////////////
-//////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////
 
 
 	[keys.TALKABOUTMURDER]: {
@@ -186,13 +186,13 @@ const intents = {
 			"I want to know to you about @betsy's murder",
 			"I want to know to you about the murder",
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.WHENBESTYFINDOUTBRANDI]: {
 		userPhrases: [
 			"when did she find out that Brandi was Pete's daughter",
-			"when did Betsy find out that Brandy is Pete's daughter"
+			"when did Betsy find out that Brandy is Pete's daughter",
 		],
 	},
 
@@ -200,10 +200,10 @@ const intents = {
 		userPhrases: [
 			"does @suspect seem suspicious",
 			"is @suspect suspicious",
-			"do you think @suspect is suspicious"
+			"do you think @suspect is suspicious",
 		],
-		parameters: [ { name:'suspect' } ],
-		outputContexts: [contexts.othersuspectsuspicious]
+		parameters: [{ name: 'suspect' }],
+		outputContexts: [contexts.othersuspectsuspicious],
 	},
 
 	[keys.WHATBETSYDOINGNIGHTOFMURDER]: {
@@ -212,7 +212,7 @@ const intents = {
 			"what was @betsy doing the night of the fire",
 			"what was @betsy doing the night she died",
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.TELLABOUTMURDER]: {
@@ -237,7 +237,7 @@ const intents = {
 			"why was @betsy murdered",
 			"why was she murdered",
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.THINKOTHERSUSPECTKILLED]: {
@@ -248,8 +248,8 @@ const intents = {
 			"do you suspect @suspect",
 			"did @suspect kill Betsy",
 		],
-		parameters: [ { name: 'suspect' }, betsyParam ],
-		outputContexts: [ contexts.thinkothersuspectkilled ]
+		parameters: [{ name: 'suspect' }, betsyParam],
+		outputContexts: [contexts.thinkothersuspectkilled],
 	},
 
 	[keys.KNOWOTHERSUSPECT]: {
@@ -265,8 +265,8 @@ const intents = {
 			"do you know @suspect",
 			"do you know @suspect",
 		],
-		parameters: [ { name: 'suspect' } ],
-		outputContexts: [contexts.knowothersuspect]
+		parameters: [{ name: 'suspect' }],
+		outputContexts: [contexts.knowothersuspect],
 	},
 
 	[keys.DOYOUTRUSTOTHERSUSPECT]: {
@@ -275,8 +275,8 @@ const intents = {
 			"can you trust @suspect",
 			"should we trust @suspect",
 		],
-		parameters: [ { name: 'suspect' } ],
-		outputContexts: [contexts.doyoutrustothersuspect]
+		parameters: [{ name: 'suspect' }],
+		outputContexts: [contexts.doyoutrustothersuspect],
 	},
 
 	[keys.KNOWBETSY]: {
@@ -287,7 +287,7 @@ const intents = {
 			"@suspect do you know @betsy",
 			"I want to ask you about @betsy do you know her",
 		],
-		parameters: [ { name: 'suspect', opts: { required: false }}, betsyParam ]
+		parameters: [{ name: 'suspect', opts: { required: false }}, betsyParam],
 	},
 
 	[keys.WHOISBETSY]: {
@@ -296,7 +296,7 @@ const intents = {
 			"who is @betsy again",
 			"@suspect who is @betsy",
 		],
-		parameters: [ { name: 'suspect', opts: { required: false }}, betsyParam ]
+		parameters: [{ name: 'suspect', opts: { required: false }}, betsyParam],
 	},
 
 	[keys.HOWFEELABOUTBETSY]: {
@@ -304,9 +304,9 @@ const intents = {
 			"what is your opinion about @betsy",
 			"what is your opinion about @betsy",
 			"@suspect how did you feel about @betsy",
-			"@suspect how do you feel about @betsy"
+			"@suspect how do you feel about @betsy",
 		],
-		parameters: [ { name: 'suspect', opts: { required: false }}, betsyParam ]
+		parameters: [{ name: 'suspect', opts: { required: false }}, betsyParam],
 	},
 
 	[keys.WHYBETSYMURDERED]: {
@@ -315,7 +315,7 @@ const intents = {
 			"why do you think she was murdered",
 			"what reason was @betsy murdered",
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.GETALONGBETSY]: {
@@ -323,12 +323,12 @@ const intents = {
 			"do you have a good relationship with @besty?",
 			"did you get along with @betsy",
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.DIDBETSYCONSTNOTLIKEEACHOTHER]: {
 		userPhrases: [
-			"did you see any issues between Betsy and Constance"
+			"did you see any issues between Betsy and Constance",
 		],
 	},
 
@@ -337,10 +337,10 @@ const intents = {
 			"when did you last see @suspect",
 			"do you know where @suspect was last night?",
 			"where was @suspect last night?",
-			"do you know where @suspect was on the night of the murder"
+			"do you know where @suspect was on the night of the murder",
 		],
-		parameters: [ { name:'suspect' } ],
-		outputContexts: [contexts.othersuspectalibi]
+		parameters: [{ name: 'suspect' }],
+		outputContexts: [contexts.othersuspectalibi],
 	},
 
 	[keys.TALKTOBETSY]: {
@@ -349,7 +349,7 @@ const intents = {
 			"question @betsy",
 			"let's talk to @betsy",
 		],
-		parameters: [ betsyParam ]
+		parameters: [betsyParam],
 	},
 
 	[keys.WHATTHINKOTHERSUSPECT]: {
@@ -357,77 +357,77 @@ const intents = {
 			"what do you think of @suspect",
 			"how do you feel about @suspect",
 		],
-		parameters: [ { name: 'suspect' } ],
-		outputContexts: [contexts.whatthinkothersuspect]
+		parameters: [{ name: 'suspect' }],
+		outputContexts: [contexts.whatthinkothersuspect],
 	},
 
 
 
 
 
-	[keys.YOUWANTTOKILLBETSY]:{  
-      "userPhrases":[  
-         "did you want to kill Betsy",
-         "so did you want Betsy dead",
-         "did you want Betsy dead",
-         "did you want Betsy to die",
-         "did you want Betsy dead",
-         "what you want Betsy to die",
-         "did you want Betsy dead",
-         "did it make you want to kill her"
-      ]
-   },
-   [keys.WHOBETSYENEMIES]:{  
-      "userPhrases":[  
-         "who were her enemies",
-         "who were Betsy's enemies"
-      ]
-   },
-   [keys.WEREYOUALONE]:{  
-      "userPhrases":[  
-         "were you alone",
-         "who are you with",
-         "who else was with you",
-         "who were you with"
-      ]
-   },
-   [keys.WHENBUYRECIPE]:{  
-      "userPhrases":[  
-         "when did she buy the recipe"
-      ]
-   },
-   [keys.CONFIRMALIBI]:{  
-      "userPhrases":[  
-         "can anyone verify that you were reading a book"
-      ]
-   },
-   [keys.WHENHEARMURDER]:{  
-      "userPhrases":[  
-         "when did you find out she died"
-      ]
-   },
-   [keys.FIGHTWITHBETSY]:{  
-      "userPhrases":[  
-         "did you fight with Betsy"
-      ]
-   },
-   [keys.WHOOTHERSUSPECT]:{  
-      "userPhrases":[  
-         "who is ",
-         "who's your "
-      ]
-   },
-   [keys.WITHOTHERSUSPECT]:{  
-      "userPhrases":[  
-         "was your boyfriend with you on the night of the murder"
-      ]
-   },
-   [keys.OTHERSUSPECTANGRYBETSY]:{  
-      "userPhrases":[  
-         "did your boyfriend hate Betsy",
-         "was Pete angry with Betsy"
-      ]
-   },
+	[keys.YOUWANTTOKILLBETSY]: {  
+		"userPhrases": [  
+			"did you want to kill Betsy",
+			"so did you want Betsy dead",
+			"did you want Betsy dead",
+			"did you want Betsy to die",
+			"did you want Betsy dead",
+			"what you want Betsy to die",
+			"did you want Betsy dead",
+			"did it make you want to kill her",
+		],
+	},
+	[keys.WHOBETSYENEMIES]: {  
+		"userPhrases": [  
+			"who were her enemies",
+			"who were Betsy's enemies",
+		],
+	},
+	[keys.WEREYOUALONE]: {  
+		"userPhrases": [  
+			"were you alone",
+			"who are you with",
+			"who else was with you",
+			"who were you with",
+		],
+	},
+	[keys.WHENBUYRECIPE]: {  
+		"userPhrases": [  
+			"when did she buy the recipe",
+		],
+	},
+	[keys.CONFIRMALIBI]: {  
+		"userPhrases": [  
+			"can anyone verify that you were reading a book",
+		],
+	},
+	[keys.WHENHEARMURDER]: {  
+		"userPhrases": [  
+			"when did you find out she died",
+		],
+	},
+	[keys.FIGHTWITHBETSY]: {  
+		"userPhrases": [  
+			"did you fight with Betsy",
+		],
+	},
+	[keys.WHOOTHERSUSPECT]: {  
+		"userPhrases": [  
+			"who is ",
+			"who's your ",
+		],
+	},
+	[keys.WITHOTHERSUSPECT]: {  
+		"userPhrases": [  
+			"was your boyfriend with you on the night of the murder",
+		],
+	},
+	[keys.OTHERSUSPECTANGRYBETSY]: {  
+		"userPhrases": [  
+			"did your boyfriend hate Betsy",
+			"was Pete angry with Betsy",
+		],
+	},
    
 }
 
@@ -437,7 +437,7 @@ Object.keys(intents).forEach((k) => {
 	if(!intents[k].parameters) intents[k].parameters = []
 })
 
-module.exports = intents;
+module.exports = intents
 
 
 

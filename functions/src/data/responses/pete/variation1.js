@@ -1,8 +1,8 @@
-//Pete Variation 1: Pete Killer
-const keys = require('../../../intent-keys.js')
+// Pete Variation 1: Pete Killer
+const keys = require('../../../config/intent-keys')
 module.exports = {
 	[keys.DIDYOUKILLHER]: 'No way! But I\'d like to help you out. I\'ll bet it was one of the guys working on redoing the walls. Who else would have that much turpentine?',
-	[keys.TELLABOUTTUCKER]: 'Tucker Mitts was Betsy\'s head chef and is my daughter\'s boyfriend. He says he loves her, but the guy worked for me for 5 years and I\'ve seen how he is. In fact. You guys should take a close look at him. I could totally see that snake dousing the place in turpentine, lighting a match and riding off into the sunset stinking rich.',
+	[keys.TELLABOUT_TUCKER]: 'Tucker Mitts was Betsy\'s head chef and is my daughter\'s boyfriend. He says he loves her, but the guy worked for me for 5 years and I\'ve seen how he is. In fact. You guys should take a close look at him. I could totally see that snake dousing the place in turpentine, lighting a match and riding off into the sunset stinking rich.',
 	[keys.PETE_WHODAUGHTERBF]: 'Tucker Mitts was Betsy\'s head chef and is my daughter\'s boyfriend. He says he loves her, but the guy worked for me for 5 years and I\'ve seen how he is. In fact. You guys should take a close look at him. I could totally see that snake dousing the place in turpentine, lighting a match and riding off into the sunset stinking rich.',
 	[keys.PETE_CATCH_IN_LIE]: '<emphasis level="reduced">I should speak with my lawyer.</emphasis>',
 	[keys.WHOKILLEDBETSY]: 'I know it wasn\'t me. I\'ll bet it was one of the guys working on redoing the walls. Who else would have that much turpentine?',

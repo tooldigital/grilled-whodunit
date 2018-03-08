@@ -1,5 +1,5 @@
-//Pete General
-const keys = require('../../../intent-keys.js')
+// Pete General
+const keys = require('../../../config/intent-keys')
 module.exports = {
 
 	hints: {},
@@ -17,10 +17,10 @@ module.exports = {
 	[keys.DIDYOUKILLHER]: 'Nope. I cook pigs, not people. Besides, I was at my restaurant all night, on the other side of town.',
 
 	//realization 1
-	[keys.TELLABOUTTUCKER]: 'Tucker Mitts was Betsy\'s head chef and is my daughter\'s boyfriend. He says he loves her, but the guy worked for me for 5 years and I\'ve seen how he is. But Brandi won\'t listen to me.',
-	[keys.TELLABOUTBRANDI]: 'Brandi Lynn is my baby daughter. She\'s just turned 21, so I guess I need to get used to the idea of her being an adult.',
-	[keys.TELLABOUTPETE]: 'guy.<break delay="1s" /> Are you paying attention?',
-	[keys.TELLABOUTCONSTANCE]: 'Constance is my mother. She\'s been a pillar in the Lockhart community for nearly 40 years and before that was raised here.',
+	[keys.TELLABOUT_TUCKER]: 'Tucker Mitts was Betsy\'s head chef and is my daughter\'s boyfriend. He says he loves her, but the guy worked for me for 5 years and I\'ve seen how he is. But Brandi won\'t listen to me.',
+	[keys.TELLABOUT_BRANDI]: 'Brandi Lynn is my baby daughter. She\'s just turned 21, so I guess I need to get used to the idea of her being an adult.',
+	[keys.TELLABOUT_PETE]: 'guy.<break delay="1s" /> Are you paying attention?',
+	[keys.TELLABOUT_CONSTANCE]: 'Constance is my mother. She\'s been a pillar in the Lockhart community for nearly 40 years and before that was raised here.',
 	[keys.PETE_WHODAUGHTER]: 'Brandi Lynn is my baby daughter. She\'s just turned 21, so I guess I need to get used to the idea of her being an adult.',
 	[keys.PETE_WHOMOTHER]: 'Constance is my mother. She\'s been a pillar in the Lockhart community for nearly 40 years and before that was raised here.',
 	[keys.PETE_WHODAUGHTERBF]: 'Tucker Mitts was Betsy\'s head chef and is my daughter\'s boyfriend. He says he loves her, but the guy worked for me for 5 years and I\'ve seen how he is. But Brandi won\'t listen to me.',
@@ -34,7 +34,7 @@ module.exports = {
 	//peripheral	
 	[keys.WHATRECIPE]: 'That\'s the million dollar question. If I could find some way to get my hands on it, I would. I guess you\'ll just have to ask Tucker, though. After all, he\'s the head chef.',
 	[keys.BETSYDOSOMETHINGTOYOU]: 'Well I\'m embarrassed to say. Betsy put me out of business. I was going strong for a few years. She came onto the scene to compete and I was still in the lead. Then she bought that damn recipe and everything turned around from there.',
-	[keys.WHENLASTSEEBETSY]: 'I think i saw her a week ago around town. I\'m not sure where.',
+	[keys.WHENLASTSEEBETSY]: 'I think I saw her a week ago around town. I\'m not sure where.',
 	[keys.PETE_WHYGOOUTOFBUSINESS]: 'Well I\'m embarrassed to say. Betsy put me out of business. I was going strong for a few years. She came onto the scene to compete and I was still in the lead. Then she bought that damn recipe and everything turned around from there.',
 	[keys.PETE_HOWBETSYPUTYOUOUTBIZ]: 'Well, the only reason she got into business was to compete with me and by proxy stick it to my mom. Business was fine until she bought that recipe. Then she started crushing me.',
 	[keys.PETE_WHYDAUGHTERFIRED]: 'Betsy was a rotten old lady and didn\'t really need a reason. Before last night, we hadn\'t spoken since she got fired, though. So you should ask Brandi Lynn.',
@@ -43,15 +43,14 @@ module.exports = {
 	[keys.PETE_WHYENEMYOFFAM]: 'You\'ll really have to ask my mom about that',
 	[keys.PETE_BETSYHATEBEFOREBORN]: 'Betsy and my mother had been feuding for decades. I don\'t even know why',
 	[keys.PETE_WHEREDAUGHTERGOING]: 'I didn\'t say my daughter was going anywhere. What are you talking about?',
-	[keys.PETE_WHYNOTTRUSTTUCKER]: 'He\'s got a few too many notches on the belt. I used to go out with him when i was bored. That guy doesn\'t care about anybody but himself',
+	[keys.PETE_WHYNOTTRUSTTUCKER]: 'He\'s got a few too many notches on the belt. I used to go out with him when I was bored. That guy doesn\'t care about anybody but himself',
 	[keys.PETE_HOWFARRESTAURANTFROMBETSY]: 'It\'s not close, bud. I\'d say about a 20 minute drive.',
 	[keys.PETE_WHATSPEAKABOUTDAUGHTER]: 'I didn\'t say I spoke with my daughter.',
 	[keys.PETE_BRANDICALLLASTNIGHT]: 'She didn\'t call me last night.',
 	[keys.PETE_ALONELASTNIGHT]: 'I didn\'t see anybody last night. I just put on some music and tried to make the best of breaking down my life\'s work to sell for parts.',
 	[keys.PETE_CATCH_IN_LIE]: 'I never said anything about that. I don\'t know what you\'re talking about.',
 
-
-	[keys.NEW_TALKABOUTMURDER]: `What would you like to know?`,
+	[keys.TALKABOUTMURDER]: `What would you like to know?`,
 	[keys.WHENBESTYFINDOUTBRANDI]: `She found out last week right before she fired Brandi Lynn.`,
 	[keys.OTHERSUSPECTSUSPICIOUS_BRANDI]: `definitely not.`,
 	[keys.OTHERSUSPECTSUSPICIOUS_TUCKER]: `I find him a little suspicious.`,
@@ -66,8 +65,8 @@ module.exports = {
 	[keys.WHOISBETSY]: `Betsy was a terrible old woman who now lies dead.`,
 	[keys.KNOWOTHERSUSPECT_BRANDI]: `Know her? I raised her. She's my daughter.`,
 	[keys.KNOWOTHERSUSPECT_TUCKER]: `yeah, I know that guy.`,
-	[keys.KNOWOTHERSUSPECT_CONSTANCE]: `That's my mother.  Yeah, I know her.`,
-	[keys.KNOWOTHERSUSPECT_PETE]: `My name is Pete.  Nice to meet you.`,
+	[keys.KNOWOTHERSUSPECT_CONSTANCE]: `That's my mother. Yeah, I know her.`,
+	[keys.KNOWOTHERSUSPECT_PETE]: `My name is Pete. Nice to meet you.`,
 	[keys.TELLABOUTMURDER]: `All I know is that Betsy died in a fire. `,
 	[keys.HOWOLDBRANDI]: `My daughter is 21 years old. `,
 	[keys.HOWFEELABOUTBETSY]: `I hate her. She put me out of business! `,
@@ -91,34 +90,34 @@ module.exports = {
 	[keys.PETE_DIDBETSYHATEBRANDI]: `I'd ask her but she's dead. But she didn't particularly care for my family.`,
 	[keys.PETE_WHYBRANDICALL]: `Brandi did not call me.`,
 	[keys.PETE_WHATDAUGHTERRAMBLING]: `I don't know what you're talking about.`,
-	[keys.PETE_DIDDAUGHTERWORKFORBETSY]: `She did. `,
+	[keys.PETE_DIDDAUGHTERWORKFORBETSY]: `She did.`,
 
-	[keys.YOUWANTTOKILLBETSY]: `I imagined doing it. But, no.  I'm not a killer.`,
-	[keys.WHOBETSYENEMIES]: `Well..  my mom for one.`,
+	[keys.YOUWANTTOKILLBETSY]: `I imagined doing it. But, no. I'm not a killer.`,
+	[keys.WHOBETSYENEMIES]: `Well.. my mom for one.`,
 	[keys.WEREYOUALONE]: `yeah I was alone.`,
-	[keys.WHENBUYRECIPE]: `9 months and 5 days ago.  The moment that things started to turn south for my business.`,
-	[keys.CONFIRMALIBI]: `No.  I was alone in the restaurant all night.`,
+	[keys.WHENBUYRECIPE]: `9 months and 5 days ago. The moment that things started to turn south for my business.`,
+	[keys.CONFIRMALIBI]: `No. I was alone in the restaurant all night.`,
 	[keys.WHENHEARMURDER]: `Just this morning.`,
 	[keys.FIGHTWITHBETSY]: `A few times we've had confrontations, especially since she opened her business.`,
 	[keys.WHOOTHERSUSPECT_BRANDI]: `Brandi is my daughter.`,
 	[keys.WHOOTHERSUSPECT_CONSTANCE]: `Constance is my mother.`,
 	[keys.WHOOTHERSUSPECT_PETE]: `That's me`,
-	[keys.WHOOTHERSUSPECT_TUCKER]: `Tucker is Brandi's boyfriend.  The traitor also used to work for me.`,
+	[keys.WHOOTHERSUSPECT_TUCKER]: `Tucker is Brandi's boyfriend. The traitor also used to work for me.`,
 	[keys.WITHOTHERSUSPECT_BRANDI]: `No I was by myself.`,
 	[keys.WITHOTHERSUSPECT_CONSTANCE]: `No I didn't see her.`,
-	[keys.WITHOTHERSUSPECT_PETE]: `yes.`,
-	[keys.WITHOTHERSUSPECT_TUCKER]: `Nope`,
-	[keys.OTHERSUSPECTANGRYBETSY_BRANDI]: `Yeah I would guess so.  Especially after last week`,
-	[keys.OTHERSUSPECTANGRYBETSY_CONSTANCE]: `Yeah.  it almost seemed like she enjoyed how much they hated each other sometimes.`,
-	[keys.OTHERSUSPECTANGRYBETSY_PETE]: `In a way I supposed i did.`,
+	[keys.WITHOTHERSUSPECT_PETE]: `Yes.`,
+	[keys.WITHOTHERSUSPECT_TUCKER]: `Nope.`,
+	[keys.OTHERSUSPECTANGRYBETSY_BRANDI]: `Yeah I would guess so. Especially after last week`,
+	[keys.OTHERSUSPECTANGRYBETSY_CONSTANCE]: `Yeah. It almost seemed like she enjoyed how much they hated each other sometimes.`,
+	[keys.OTHERSUSPECTANGRYBETSY_PETE]: `In a way I supposed I did.`,
 	[keys.OTHERSUSPECTANGRYBETSY_TUCKER]: `I couldn't tell ya.`,
 
-	[keys.CONST_CHARASS]: `Too many stories to recount.  I guess the most recent bad deed she's done to me indirectly was put my son out of business.`,
+	[keys.CONST_CHARASS]: `Too many stories to recount. I guess the most recent bad deed she's done to me indirectly was put my son out of business.`,
 	
-	[keys.WHATDRINKING]: "Hawkins got me some coffee.  Thanks Hawkins!",
-	[keys.HOWAREYOUTODAY]: "A little bewildered, to be honest.  It's just so terrible what happened to Betsy.",
-	[keys.WHYTUCKERSWITCHJOBS]:"I don't know.  I thought I could trust that guy.",
-	[keys.PETE_WHO_REDOING_WALLS]:"The handimen?",
-	[keys.PETE_WHAT_IS_NAME_OF_RESTAURANT]:"Pete's Smokehouse Church.",
+	[keys.WHATDRINKING]: "Hawkins got me some coffee. Thanks Hawkins!",
+	[keys.HOWAREYOUTODAY]: "A little bewildered, to be honest. It's just so terrible what happened to Betsy.",
+	[keys.WHYTUCKERSWITCHJOBS]: "I don't know. I thought I could trust that guy.",
+	[keys.PETE_WHO_REDOING_WALLS]: "The handimen?",
+	[keys.PETE_WHAT_IS_NAME_OF_RESTAURANT]: "Pete's Smokehouse Church.",
 
 }

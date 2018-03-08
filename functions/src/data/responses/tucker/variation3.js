@@ -1,5 +1,5 @@
-//Tucker Variation 3
-const keys = require('../../../intent-keys.js')
+// Tucker Variation 3
+const keys = require('../../../config/intent-keys')
 module.exports = {
 	[keys.ANGRYWITHBETSY]: 'No! She saw my potential and gave me a chance. I can\'t believe that someone would lock her in the closet and roast her like that. It\'s hard to imagine.',
 	[keys.WHOKILLEDBETSY]: 'Well it couldn\'t have been Brandi Lynn; she was with me. Maybe it was Constance. Or maybe Pete. One of them locked Betsy in that closet.',

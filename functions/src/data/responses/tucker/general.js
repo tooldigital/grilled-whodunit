@@ -1,5 +1,5 @@
 //Tucker General
-const keys = require('../../../intent-keys')
+const keys = require('../../../config/intent-keys')
 module.exports = {
 
 	hints: {},
@@ -18,10 +18,10 @@ module.exports = {
 
 	//realization 1
 	[keys.WHATBETSYDOBRANDI]: 'Well Brandi started working at Betsy\'s BBQ a couple months ago. That\'s how we met. Everything was great, but then all of a sudden one day, the two of them got in a bad argument and Betsy kind of lost it on Brandy and then fired her.',
-	[keys.TELLABOUTBRANDI]: 'Brandi is my girlfriend. She\'s a little young but I love her.',
-	[keys.TELLABOUTPETE]: 'Pete Judsen is Brandi\'s dad. He was my Boss before Betsy hired me. He never saw me as anything more than a line cook.',
-	[keys.TELLABOUTCONSTANCE]: 'Constance is Brandi\'s grandmother. I don\'t know her real well, but I don\'t think I like her very much. She acts like she owns everything and everyone in every room she walks into.',
-	[keys.TELLABOUTTUCKER]: 'You\'re talking to him, bud.',
+	[keys.TELLABOUT_BRANDI]: 'Brandi is my girlfriend. She\'s a little young but I love her.',
+	[keys.TELLABOUT_PETE]: 'Pete Judsen is Brandi\'s dad. He was my Boss before Betsy hired me. He never saw me as anything more than a line cook.',
+	[keys.TELLABOUT_CONSTANCE]: 'Constance is Brandi\'s grandmother. I don\'t know her real well, but I don\'t think I like her very much. She acts like she owns everything and everyone in every room she walks into.',
+	[keys.TELLABOUT_TUCKER]: 'You\'re talking to him, bud.',
 	[keys.TUCKER_WHOGIRLFRIEND]: 'Brandi is my girlfriend. She\'s a little young but I love her.',
 	[keys.TUCKER_WHOPETEMOM]: 'Constance. I don\'t know her real well, but I don\'t think I like her very much. She acts like she owns everything and everyone in every room she walks into.',
 	[keys.TUCKER_WHOGFDAD]: 'Pete Judsen is Brandi\'s dad. He was my Boss before Betsy hired me. He never saw me as anything more than a line cook.',
@@ -49,7 +49,7 @@ module.exports = {
 	[keys.TUCKER_HOWLONGDATING]: 'A few months.',
 	[keys.TUCKER_WHYPETENOTRESPECTYOU]: 'Your guess is as good as mine, friend. I was running the whole kitchen before I left',
 	[keys.TUCKER_MADATPETE]: 'I\'m not mad at him. I just don\'t like him. He never gave me a chance. Just saw me as a line cook.',
-	[keys.TUCKER_WHATWORKINGON]: 'Some extra stuff for the restaurant actually. work down the drain i guess',
+	[keys.TUCKER_WHATWORKINGON]: 'Some extra stuff for the restaurant actually. work down the drain I guess',
 	[keys.TUCKER_HOWMEETBRANDI]: 'We met a few months ago when she started working at Betsy\'s.',
 	[keys.TUCKER_BRANDYLEAVE]: 'She was home all night.',
 	[keys.TUCKER_WHATTIMESEECONSTANCE]: 'I didn\'t see Constance. Haven\'t seen her in a few months...',
@@ -58,27 +58,27 @@ module.exports = {
 	[keys.BRANDI_CATCH_IN_LIE]: 'What in the world are you talking about pal. I didn\'t say anything like that.',
 
 
-	[keys.NEW_TALKABOUTMURDER]: `OK. What would you like to know?`,
-	[keys.WHENBESTYFINDOUTBRANDI]: `Oh. I guess that's why Brandi got fired.  Man Betsy hates that family`,
-	[keys.OTHERSUSPECTSUSPICIOUS_BRANDI]: `no way.  Brandi?`,
-	[keys.OTHERSUSPECTSUSPICIOUS_TUCKER]: `Yeah.  I guess I'm a little suspicious.`,
-	[keys.OTHERSUSPECTSUSPICIOUS_CONSTANCE]: `I little I suppose.  `,
+	[keys.TALKABOUTMURDER]: `OK. What would you like to know?`,
+	[keys.WHENBESTYFINDOUTBRANDI]: `Oh. I guess that's why Brandi got fired. Man Betsy hates that family`,
+	[keys.OTHERSUSPECTSUSPICIOUS_BRANDI]: `no way. Brandi?`,
+	[keys.OTHERSUSPECTSUSPICIOUS_TUCKER]: `Yeah. I guess I'm a little suspicious.`,
+	[keys.OTHERSUSPECTSUSPICIOUS_CONSTANCE]: `I little I suppose. `,
 	[keys.OTHERSUSPECTSUSPICIOUS_PETE]: `I don't think he's suspicious`,
 	[keys.THINKOTHERSUSPECTKILLED_BRANDI]: `I couldn't see Brandi doing that`,
-	[keys.THINKOTHERSUSPECTKILLED_TUCKER]: `haha.  No I don't think I killed Betsy`,
-	[keys.THINKOTHERSUSPECTKILLED_CONSTANCE]: `Wow.  That would be crazy if Constance killed Betsy. But to be honest, they hated each other.`,
+	[keys.THINKOTHERSUSPECTKILLED_TUCKER]: `haha. No I don't think I killed Betsy`,
+	[keys.THINKOTHERSUSPECTKILLED_CONSTANCE]: `Wow. That would be crazy if Constance killed Betsy. But to be honest, they hated each other.`,
 	[keys.THINKOTHERSUSPECTKILLED_PETE]: `Pete was angry with Betsy for ruining his business`,
 	[keys.WHATBETSYDOINGNIGHTOFMURDER]: `Your guess is as good as mine. `,
 	[keys.KNOWBETSY]: `Yeah, I knew her`,
 	[keys.WHOISBETSY]: `Betsy Harris is the woman who got roasted!`,
 	[keys.KNOWOTHERSUSPECT_BRANDI]: `Of course I know Brandi. She's my girlfriend.`,
-	[keys.KNOWOTHERSUSPECT_TUCKER]: `You ok man?  I'm Tucker`,
+	[keys.KNOWOTHERSUSPECT_TUCKER]: `You ok man? I'm Tucker`,
 	[keys.KNOWOTHERSUSPECT_CONSTANCE]: `Yeah I know her`,
 	[keys.KNOWOTHERSUSPECT_PETE]: `I know him, yeah.`,
 	[keys.TELLABOUTMURDER]: `All I know is that Betsy died in a fire.`,
 	[keys.HOWOLDBRANDI]: `Twenty one.`,
 	[keys.HOWFEELABOUTBETSY]: `She was a great boss. She always treated me with respect.`,
-	[keys.DOYOUTRUSTOTHERSUSPECT_BRANDI]: `Of course.  `,
+	[keys.DOYOUTRUSTOTHERSUSPECT_BRANDI]: `Of course. `,
 	[keys.DOYOUTRUSTOTHERSUSPECT_TUCKER]: `yeah I guess I trust myself`,
 	[keys.DOYOUTRUSTOTHERSUSPECT_CONSTANCE]: `not really`,
 	[keys.DOYOUTRUSTOTHERSUSPECT_PETE]: `nope`,
@@ -96,16 +96,16 @@ module.exports = {
 	[keys.WHATTHINKOTHERSUSPECT_PETE]: `I don't like that guy`,
 
 	[keys.TUCKER_HOWLONGWORKBETSY]: `Not that it matters, but about three years.`,
-	[keys.TUCKER_DIDBRANDYGOTOSLEEP]: `I think so.  I'm not sure.`,
+	[keys.TUCKER_DIDBRANDYGOTOSLEEP]: `I think so. I'm not sure.`,
 	[keys.TUCKER_STILLWORKATBBQ]: `I did, until she was murdered. `,
 
 	[keys.YOUWANTTOKILLBETSY]: `No. I didn't have anything against Betsy`,
-	[keys.WHOBETSYENEMIES]: `I don't really know.  Maybe Brandi's grandmother`,
+	[keys.WHOBETSYENEMIES]: `I don't really know. Maybe Brandi's grandmother`,
 	[keys.WEREYOUALONE]: `I was with my girl.`,
 	[keys.WHENBUYRECIPE]: `Just a few months after I started, about 9 months ago`,
 	[keys.CONFIRMALIBI]: `my girl.`,
 	[keys.WHENHEARMURDER]: `I heard late last night.`,
-	[keys.FIGHTWITHBETSY]: `Actually no.  She always trusted me to do my work`,
+	[keys.FIGHTWITHBETSY]: `Actually no. She always trusted me to do my work`,
 	[keys.WHOOTHERSUSPECT_BRANDI]: `Brandy is my lady`,
 	[keys.WHOOTHERSUSPECT_CONSTANCE]: `She is Brandi's grandmother`,
 	[keys.WHOOTHERSUSPECT_PETE]: `He is Brandi's dad and my former boss`,
@@ -113,20 +113,20 @@ module.exports = {
 	[keys.WITHOTHERSUSPECT_BRANDI]: `Yeah she was with me`,
 	[keys.WITHOTHERSUSPECT_CONSTANCE]: `No`,
 	[keys.WITHOTHERSUSPECT_PETE]: `Nope`,
-	[keys.WITHOTHERSUSPECT_TUCKER]: `You're asking strange questions.  I was with myself.`,
+	[keys.WITHOTHERSUSPECT_TUCKER]: `You're asking strange questions. I was with myself.`,
 	[keys.OTHERSUSPECTANGRYBETSY_BRANDI]: `She was probably angry after what happened last week`,
 	[keys.OTHERSUSPECTANGRYBETSY_CONSTANCE]: `Yeah I've heard Brandi talk about how much Betsy and her hated each other`,
 	[keys.OTHERSUSPECTANGRYBETSY_PETE]: `I think he did, yeah`,
-	[keys.OTHERSUSPECTANGRYBETSY_TUCKER]: `I didn't have any reason to be.  She was a great boss`,
+	[keys.OTHERSUSPECTANGRYBETSY_TUCKER]: `I didn't have any reason to be. She was a great boss`,
 
-	[keys.TUCKER_PETEFIRED]: `No he didn't fire me.  I quit to go work for Betsy`,
-	[keys.TUCKER_BETSYFIRED]: `No she didn't fire me.  Everything was going great`,
+	[keys.TUCKER_PETEFIRED]: `No he didn't fire me. I quit to go work for Betsy`,
+	[keys.TUCKER_BETSYFIRED]: `No she didn't fire me. Everything was going great`,
 
 	[keys.TUCKER_WHAT_TIME_GO_SLEEP]: "I went to sleep around midnight.",
 
 	[keys.TUCKER_WHATSMOKING]: "Lucky Strikes.",
 	[keys.WHATDRINKING]: "nothing, pal.",
 	[keys.HOWAREYOUTODAY]: "I suppose I'm doing alright.",
-	[keys.WHYTUCKERSWITCHJOBS]: "I had to get out of that place.  Pete didn't respect me.",
+	[keys.WHYTUCKERSWITCHJOBS]: "I had to get out of that place. Pete didn't respect me.",
 
 }

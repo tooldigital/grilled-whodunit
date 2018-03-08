@@ -5,8 +5,8 @@ const intents = require('../../functions/src/intent-keys')
 const contexts = require('../../functions/src/context-keys')
 const yesInputs = ['confirm', 'ok', 'of course', 'sure', 'I don’t mind', 'yes', 'that’s correct', 'I agree', 'do it', 'exactly', 'sounds good']
 const noInputs = ['not really', 'I don’t think so', 'not interested', 'definitely not', 'I don’t want that', 'no', 'thanks but no', 'I disagree', 'don’t do it']
-const helpInputs = ['What are the rules', 'How do I play', 'help', 'I need help', 'help me out', 'I’m not sure what to do', 'I don’t know what to say', 'I need a hint']
-const repeatInputs = ['Can you repeat that?', 'Please repeat yourself', 'Can you say that again?', 'Say again', 'Say that again', 'I didn’t hear you', 'Can you repeat that?', 'Go back', 'What did you say?', 'What?', 'What was that?',]
+// const helpInputs = ['What are the rules', 'How do I play', 'help', 'I need help', 'help me out', 'I’m not sure what to do', 'I don’t know what to say', 'I need a hint']
+const repeatInputs = ['Can you repeat that?', 'Please repeat yourself', 'Can you say that again?', 'Say again', 'Say that again', 'I didn’t hear you', 'Can you repeat that?', 'Go back', 'What did you say?', 'What?', 'What was that?']
 
 module.exports = [
 	new Intent(intents.FALLBACK)
@@ -50,12 +50,12 @@ module.exports = [
 			'Make an accusation',
 			'I am going to press charges',
 			'I will make an accusation now',
-			`I'd like to press charges against @suspect`
+			`I'd like to press charges against @suspect`,
 		])
 		.parameters([new Intent.Parameter('suspect', {required: false})])
 		.outputContexts([
 			new Intent.Context(contexts.presscharges1, 1), 
-			new Intent.Context(contexts.question_suspect, 0)
+			new Intent.Context(contexts.question_suspect, 0),
 		])
 		.action(actions.PRESSCHARGES)
 		.build(),
@@ -80,7 +80,7 @@ module.exports = [
 			'the @evidence',
 			'his @evidence',
 			'her @evidence',
-			'it was the @evidence'
+			'it was the @evidence',
 		])
 		.parameters([new Intent.Parameter('evidence')])
 		.outputContexts([new Intent.Context(contexts.replay)])

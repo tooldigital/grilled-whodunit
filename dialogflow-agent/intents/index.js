@@ -1,8 +1,8 @@
+/* global console, __dirname */
+
 const fs = require('fs')
 const util = require('util')
-const actions = require('../../functions/src/action-keys')
-const intents = require('../../functions/src/intent-keys')
-const contexts = require('../../functions/src/context-keys')
+// const intents = require('../../functions/src/intent-keys')
 
 // assign entities to pull into example phrases
 const Intent = require('./intent')
@@ -17,21 +17,23 @@ const general = require('./general')
 const reservedIntents = require('./reserved-intents.js')
 const interrogation = require('./interrogation/')
 
-const ignoreIntentKeys = [ // this needs to be synced up with reserved-intents.js
-	intents.FALLBACK,
-	intents.QUESTION_SUSPECT_FALLBACK,
-	intents.NEW_GAME,
-	intents.PRESSCHARGES,
-	intents.PRESSCHARGES_KILLER,
-	intents.PRESSCHARGES_EVIDENCE,
-	intents.PRESSCHARGES_EVIDENCE_FALLBACK,
-	intents.REPLAY_YES,
-	intents.REPLAY_NO,
-]
+// const ignoreIntentKeys = [ // this needs to be synced up with reserved-intents.js
+// 	intents.FALLBACK,
+// 	intents.QUESTION_SUSPECT_FALLBACK,
+// 	intents.NEW_GAME,
+// 	intents.PRESSCHARGES,
+// 	intents.PRESSCHARGES_KILLER,
+// 	intents.PRESSCHARGES_EVIDENCE,
+// 	intents.PRESSCHARGES_EVIDENCE_FALLBACK,
+// 	intents.REPLAY_YES,
+// 	intents.REPLAY_NO,
+// ]
 
 let output = Object.keys(general).map((k) => {
 	let i = general[k]
-	if(!i.parameters) { console.log(i) }
+	if(!i.parameters) {
+		console.log(i) 
+	}
 	return new Intent(k)
 		.userPhrases(i.userPhrases)
 		.parameters(i.parameters.map((p) => {
@@ -50,11 +52,11 @@ module.exports = []
 
 // SANITY CHECK: assert all intent names are defined
 const intentNames = module.exports.map( intent => intent.name )
-	if(intentNames.indexOf('undefined') !== -1){
-		console.error('undefined name found in intents')
-		module.exports.forEach(intent => {
-			if(intent.name === 'undefined') {
-				console.log(intent.userSays[0])
+if(intentNames.indexOf('undefined') !== -1){
+	console.error('undefined name found in intents')
+	module.exports.forEach(intent => {
+		if(intent.name === 'undefined') {
+			console.log(intent.userSays[0])
 			console.log(intent)
 		}
 	})

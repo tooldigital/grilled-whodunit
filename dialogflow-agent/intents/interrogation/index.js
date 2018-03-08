@@ -1,9 +1,7 @@
 const Intent = require('../intent')
-const intents = require('../../../functions/src/intent-keys')
 const contexts = require('../../../functions/src/context-keys')
 const actions = require('../../../functions/src/action-keys')
 const suspects = require('../../../functions/src/data/suspects')
-const keys = require('../../../functions/src/intent-keys')
 const general = require('./general')
 const suspectIntents = {
 	[suspects.BRANDI]: require('./brandi'),
@@ -33,7 +31,7 @@ var output = Object.keys(general).map((k) => {
 // create intents for suspect interrogation
 Object.keys(suspectIntents).map(suspectContextKey => {
 	var suspect = suspectIntents[suspectContextKey]
-	Object.keys(suspect).map((k) => {
+	return Object.keys(suspect).map((k) => {
 		let ctx = contexts.suspects[suspectContextKey]
 		let oc = suspect[k].outputContexts.map((o) => {
 			return new Intent.Context(o)
@@ -53,6 +51,7 @@ Object.keys(suspectIntents).map(suspectContextKey => {
 			.action(actions.QUESTION_SUSPECT)
 			.build()
 		output.push(intent)
+		return intent
 	})
 })
 

@@ -1,5 +1,6 @@
+/* global console */
 const fs = require('fs')
-const suspects = require('../functions/src/data/suspects')
+// const suspects = require('../functions/src/data/suspects')
 
 // const intentsURL = './dialogflow-agent/intents/';
 // //intents
@@ -42,7 +43,7 @@ const loopList = (list, destination, keyConcat) => {
 		if( typeof item === 'string' ) { //if string append to flattened output
 			destination.push({
 				key: keyConcat + '_' + key,
-				response: item
+				response: item,
 			})
 		} else if( // if array or object recurse
 			Array.isArray(item) ||
@@ -51,16 +52,16 @@ const loopList = (list, destination, keyConcat) => {
 				!(item instanceof Function)
 			)
 		){
-			loopList(item, destination, keyConcat+'_'+key)
+			loopList(item, destination, keyConcat + '_' + key)
 		}
 	}
 
 	let type = (Array.isArray(list)) ? 'array' : 'object'
 	if(type === 'array') {
-	 	list.forEach(cb)
-	 } else { 
-	 	Object.keys(list).forEach(cb)
-	 }
+		list.forEach(cb)
+	} else { 
+		Object.keys(list).forEach(cb)
+	}
 }
 
 loopList(responses, outputresponses, '')

@@ -1,5 +1,5 @@
-//Constance Variation 0
-const keys = require('../../../intent-keys.js')
+// Constance Variation 0
+const keys = require('../../../config/intent-keys')
 module.exports = {
 
 	//core
@@ -18,14 +18,9 @@ module.exports = {
 
 	[keys.CONST_LIKEGRANDDAUGHTER]: `I love my granddaughter. She might not have the best taste in men, what with that boyfriend of hers. But she is a sweet thing. She even called her grandmother last night when she was out driving. `,
 	[keys.CONST_WHYBRANDICALL]: `I think maybe she just wanted to be comforted by her dear old grandmother after what betsy did to her last week`,
-	
-
 
 	[keys.OTHERSUSPECTALIBI_BRANDI]: `We briefly spoke on the phone at around 8:30. It sounded like she was out for a drive.`,
 	[keys.OTHERSUSPECTALIBI_TUCKER]: `Honey, I don't care to know the comings and goings of Tucker Mitts. `,
 	[keys.OTHERSUSPECTALIBI_CONSTANCE]: `I was at home, reading a book. `,
 	[keys.OTHERSUSPECTALIBI_PETE]: `My poor boy? He was at his restaurant, getting things ready to sell off because that old witch put him out of business.`,
-
-
-
 }

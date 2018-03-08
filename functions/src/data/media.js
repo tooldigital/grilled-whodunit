@@ -1,11 +1,11 @@
 
-const suspects = require('./suspects')
-const bucketURL = 'https://storage.googleapis.com/whodunnit-media/';
+const suspects = require('../config/suspects')
+const bucketURL = 'https://storage.googleapis.com/whodunnit-media/'
 
 module.exports = {
-	song: `${bucketURL}The_Black_Cat.mp3`,
+	// song: `${bucketURL}The_Black_Cat.mp3`,
 	// song: `${bucketURL}Fading_Photos.mp3`,
-	// song: `${bucketURL}Snap_To_Fit.mp3`,
+	song: `${bucketURL}Snap_To_Fit.mp3`,
 	simmer: `${bucketURL}whodunnit-media/Under_Cover.mp3`,
 	siren: `${bucketURL}police_siren.mp3`,
 	door: {
@@ -14,7 +14,7 @@ module.exports = {
 		[suspects.PETE]: `${bucketURL}pete_door.mp3`,
 		[suspects.TUCKER]: `${bucketURL}tucker_door.mp3`,
 	},
-	props: {
+	sfx: {
 		[suspects.BRANDI]: [
 			`${bucketURL}brandi/pour.mp3`,
 			`${bucketURL}brandi/sip.mp3`,
@@ -64,7 +64,7 @@ module.exports = {
 		],
 	},
 	get room() {
-		let rannum = Math.ceil(Math.random()*71);
-		return `${bucketURL}room/room${rannum}.mp3`;
-	} 
+		let rannum = Math.ceil(Math.random() * 71)
+		return `${bucketURL}room/room${rannum}.mp3`
+	}, 
 }

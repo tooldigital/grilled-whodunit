@@ -137,7 +137,7 @@ const intents = {
 			"did @betsy hate brandi?",
 			"did she hate brandy",
 		],
-		parameters:  [{ name: 'betsy', opts: { required: false }}]
+		parameters: [{ name: 'betsy', opts: { required: false }}],
 	},
 	[keys.PETE_WHYBRANDICALL]: {
 		userPhrases: [
@@ -152,16 +152,16 @@ const intents = {
 			"what what was your daughter rambling about",
 			"how was she rambling",
 		],
-		parameters:  [{ name: 'betsy', opts: { required: false }}],
-		outputContexts: [contexts.doyoutrustothersuspect]
+		parameters: [{ name: 'betsy', opts: { required: false }}],
+		outputContexts: [contexts.doyoutrustothersuspect],
 	},
 	[keys.PETE_DIDDAUGHTERWORKFORBETSY]: {
 		userPhrases: [
 			"did your daughter work for @betsy",
 			"did Brandi work for her",
 		],
-		parameters:  [{ name: 'betsy', opts: { required: false }}],
-		outputContexts: [contexts.doyoutrustothersuspect]
+		parameters: [{ name: 'betsy', opts: { required: false }}],
+		outputContexts: [contexts.doyoutrustothersuspect],
 	},
 	
 }

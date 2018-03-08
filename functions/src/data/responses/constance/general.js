@@ -1,5 +1,5 @@
-//Constance General
-const keys = require('../../../intent-keys')
+// Constance General
+const keys = require('../../../config/intent-keys')
 module.exports = {
 
 	hints: {
@@ -19,12 +19,12 @@ module.exports = {
 	[keys.WHOKILLEDBETSY]: 'Who knows my dear. Isn\'t it your job to figure this out?',
 
 	//realization 1
-	[keys.TELLABOUTBRANDI]: 'Brandi Lynn Michelle Judsen is my granddaughter. Such a sweet and smart young woman. Just a bit rough around the edges.',
-	[keys.TELLABOUTPETE]: 'Pete is my son. And he was Betsy\'s main competitor. I was so proud of him, And then that old witch put him out of business.',
+	[keys.TELLABOUT_BRANDI]: 'Brandi Lynn Michelle Judsen is my granddaughter. Such a sweet and smart young woman. Just a bit rough around the edges.',
+	[keys.TELLABOUT_PETE]: 'Pete is my son. And he was Betsy\'s main competitor. I was so proud of him, And then that old witch put him out of business.',
 	[keys.CONST_WHOGDBOYFRIEND]: 'Tucker Mitts is the hoodlum Betsy hired to be her cook and is also unfortunately who my granddaughter has been dating.',
-	[keys.TELLABOUTTUCKER]: 'Tucker Mitts is the hoodlum Betsy hired to be her cook and is also unfortunately who my granddaughter has been dating.',
+	[keys.TELLABOUT_TUCKER]: 'Tucker Mitts is the hoodlum Betsy hired to be her cook and is also unfortunately who my granddaughter has been dating.',
 	[keys.WHATBETSYDOBRANDI]: 'That spiteful old woman humiliated her in public, then fired her. Such a classless thing to do if you ask me.',
-	[keys.TELLABOUTCONSTANCE]: 'My dear. Are you feeling alright?.',
+	[keys.TELLABOUT_CONSTANCE]: 'My dear. Are you feeling alright?.',
 	[keys.WHOBETSYHEADCHEF]: 'Tucker Mitts is the hoodlum Betsy hired to be her cook and is also unfortunately who my granddaughter has been dating.',
 	[keys.CONST_WHOGRANDDAUGHTER]: 'Brandi Lynn Michelle Judsen is my granddaughter. Such a sweet and smart young woman. Just a bit rough around the edges.',
 	[keys.CONST_WHOSON]: 'Pete is my son. And he was Betsy\'s main competitor. I was so proud of him, And then that old witch put him out of business.',
@@ -53,14 +53,12 @@ module.exports = {
 	[keys.CONST_WHYGDFIRED]: 'That old witch didn\'t need a reason. She was rotten to everyone.',
 	[keys.CONST_CATCH_IN_LIE]: 'My dear I haven\'t the foggiest what you\'re talking about.',
 	
-
-
-	[keys.NEW_TALKABOUTMURDER]: `Of course you would. What would you like to know?`,
+	[keys.TALKABOUTMURDER]: `Of course you would. What would you like to know?`,
 	[keys.WHENBESTYFINDOUTBRANDI]: `She found out last week right before she verbally assaulted my dear granddaughter`,
 	[keys.OTHERSUSPECTSUSPICIOUS_BRANDI]: `of course not`,
 	[keys.OTHERSUSPECTSUSPICIOUS_TUCKER]: `He seems suspicious to me in general. I know it's improper of me to say, but he just comes from the wrong side of the tracks`,
 	[keys.OTHERSUSPECTSUSPICIOUS_CONSTANCE]: `I'll leave that for you to decide my dear`,
-	[keys.OTHERSUSPECTSUSPICIOUS_PETE]: `Not my son.  heavens no`,
+	[keys.OTHERSUSPECTSUSPICIOUS_PETE]: `Not my son. heavens no`,
 	[keys.THINKOTHERSUSPECTKILLED_BRANDI]: `My dear little Brandi couldn't do that`,
 	[keys.THINKOTHERSUSPECTKILLED_TUCKER]: `Well. I wouldn't put anything past that man`,
 	[keys.THINKOTHERSUSPECTKILLED_CONSTANCE]: `no, my dear. I don't think so`,
@@ -70,20 +68,20 @@ module.exports = {
 	[keys.WHOISBETSY]: `Betsy's the old witch who got what she had coming to her!`,
 	[keys.KNOWOTHERSUSPECT_BRANDI]: `Indeed I do. She's my granddaughter.`,
 	[keys.KNOWOTHERSUSPECT_TUCKER]: `Yes I do`,
-	[keys.KNOWOTHERSUSPECT_CONSTANCE]: `Darling.  I'm Constance`,
-	[keys.KNOWOTHERSUSPECT_PETE]: `yes.  that's my dear boy`,
+	[keys.KNOWOTHERSUSPECT_CONSTANCE]: `Darling. I'm Constance`,
+	[keys.KNOWOTHERSUSPECT_PETE]: `yes. that's my dear boy`,
 	[keys.TELLABOUTMURDER]: `I know that Betsy died in a fire. That's all. `,
 	[keys.HOWOLDBRANDI]: `Brandi Lynn? she's twenty one. `,
 	[keys.HOWFEELABOUTBETSY]: `Let's just say we aren't the best of friends`,
 	[keys.DOYOUTRUSTOTHERSUSPECT_BRANDI]: `Of course I trust my little darling`,
 	[keys.DOYOUTRUSTOTHERSUSPECT_TUCKER]: `Not one bit. `,
 	[keys.DOYOUTRUSTOTHERSUSPECT_CONSTANCE]: `i think i deserve it`,
-	[keys.DOYOUTRUSTOTHERSUSPECT_PETE]: `My dear pete.  Of course`,
+	[keys.DOYOUTRUSTOTHERSUSPECT_PETE]: `My dear pete. Of course`,
 	[keys.WHYBETSYMURDERED]: `I would guess that she was rotten to one too many people. That woman had it coming.`,
 	[keys.GETALONGBETSY]: `That woman hated me the way dogs hate cats. And I hated her more. `,
 	[keys.DIDBETSYCONSTNOTLIKEEACHOTHER]: `you could say that.`,
 	[keys.OTHERSUSPECTALIBI_BRANDI]: `I think she was at her boyfriend's place.`,
-	[keys.OTHERSUSPECTALIBI_TUCKER]: `I don't know.  Probably at his filthy apartment.`,
+	[keys.OTHERSUSPECTALIBI_TUCKER]: `I don't know. Probably at his filthy apartment.`,
 	[keys.OTHERSUSPECTALIBI_CONSTANCE]: `I was at home, darlin.`,
 	[keys.OTHERSUSPECTALIBI_PETE]: `Poor dear was at his restaurant preparing to close it down.`,
 	[keys.TALKTOBETSY]: `A conversation with a dead woman. HA HA!`,
@@ -98,16 +96,15 @@ module.exports = {
 	[keys.CONST_ALONEALIBI]: `Indeed I was. Home alone, minding my business and enjoying a book.`,
 	[keys.CONST_WHYBRANDICALL]: `Brandi didn't call me last night.`,
 
-	
-	[keys.YOUWANTTOKILLBETSY]: `my dear. I didn't want her to die.  I wanted her to stop doing terrible things`,
+	[keys.YOUWANTTOKILLBETSY]: `my dear. I didn't want her to die. I wanted her to stop doing terrible things`,
 	[keys.WHOBETSYENEMIES]: `She had more than you might expect.`,
 	[keys.WEREYOUALONE]: `I was alone, yes.`,
 	[keys.WHENBUYRECIPE]: `about 9 months ago I believe`,
-	[keys.CONFIRMALIBI]: `I was alone darlin, so.  I suppose if you can get my pillow to talk.`,
+	[keys.CONFIRMALIBI]: `I was alone darlin, so. I suppose if you can get my pillow to talk.`,
 	[keys.WHENHEARMURDER]: `I heard from your friends just before I was brought here`,
 	[keys.FIGHTWITHBETSY]: `I couldn't begin to count the number of times she and I have clashed`,
 	[keys.WHOOTHERSUSPECT_BRANDI]: `Brandi is my granddaughter`,
-	[keys.WHOOTHERSUSPECT_CONSTANCE]: `Dear.  I am Constance.`,
+	[keys.WHOOTHERSUSPECT_CONSTANCE]: `Dear. I am Constance.`,
 	[keys.WHOOTHERSUSPECT_PETE]: `Pete is my dear son.`,
 	[keys.WHOOTHERSUSPECT_TUCKER]: `Tucker is Brandi's hoodlum boyfriend and Betsy's head chef.`,
 	[keys.WITHOTHERSUSPECT_BRANDI]: `No I didn't see her.`,
@@ -116,12 +113,11 @@ module.exports = {
 	[keys.WITHOTHERSUSPECT_TUCKER]: `No I was not with that man.`,
 	[keys.OTHERSUSPECTANGRYBETSY_BRANDI]: `She had a right to be, after what Betsy did to my poor darling.`,
 	[keys.OTHERSUSPECTANGRYBETSY_CONSTANCE]: `Well I wasn't happy with her.`,
-	[keys.OTHERSUSPECTANGRYBETSY_PETE]: `Not my poor Pete.  He was upset, but hate is such a strong word.`,
-	[keys.OTHERSUSPECTANGRYBETSY_TUCKER]: `Who knows.  You can't trust that man.`,
+	[keys.OTHERSUSPECTANGRYBETSY_PETE]: `Not my poor Pete. He was upset, but hate is such a strong word.`,
+	[keys.OTHERSUSPECTANGRYBETSY_TUCKER]: `Who knows. You can't trust that man.`,
 
-
-	[keys.WHATDRINKING]: "I'm not drinking anything, my dear.  Do you feel ok?",
-	[keys.HOWAREYOUTODAY]: "I feel at peace.  Betsy is gone, but she lived a full life.",
+	[keys.WHATDRINKING]: "I'm not drinking anything, my dear. Do you feel ok?",
+	[keys.HOWAREYOUTODAY]: "I feel at peace. Betsy is gone, but she lived a full life.",
 	[keys.WHYTUCKERSWITCHJOBS]: "Who knows what goes on in the mind of a man so untrustworthy.",
 }
 

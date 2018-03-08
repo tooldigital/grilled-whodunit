@@ -11,7 +11,7 @@ module.exports = new Entity('suspect', [
 			'Tucker Mintz',
 			'suspect one',
 			'suspect number one',
-		]
+		],
 	},
 	{
 		value: suspects.CONSTANCE,
@@ -23,7 +23,7 @@ module.exports = new Entity('suspect', [
 			'Constance Florentine',
 			'suspect two',
 			'suspect number two',
-		]
+		],
 	},
 	{
 		value: suspects.PETE,
@@ -37,7 +37,7 @@ module.exports = new Entity('suspect', [
 			'Pete Judsen',
 			'suspect three',
 			'suspect number three',
-		]
+		],
 	},
 	{
 		value: suspects.BRANDI,
@@ -53,6 +53,6 @@ module.exports = new Entity('suspect', [
 			'Brandy Linn',
 			'suspect four',
 			'suspect number four',
-		]
-	}
+		],
+	},
 ])

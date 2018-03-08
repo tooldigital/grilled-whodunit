@@ -10,5 +10,5 @@ module.exports = {
 		require('./variation1'),
 		require('./variation2'),
 		require('./variation3'),
-	]
+	],
 }

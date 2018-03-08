@@ -1,5 +1,5 @@
-//Tucker Variation 4
-const keys = require('../../../intent-keys.js')
+// Tucker Variation 0
+const keys = require('../../../config/intent-keys')
 module.exports = {
 
 	//core

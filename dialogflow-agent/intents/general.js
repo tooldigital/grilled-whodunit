@@ -1,12 +1,11 @@
 //general intents
-const Intent = require('./intent')
 const actions = require('../../functions/src/action-keys')
 const intents = require('../../functions/src/intent-keys')
 const contexts = require('../../functions/src/context-keys')
-const yesInputs = ['confirm', 'ok', 'of course', 'sure', 'I don’t mind', 'yes', 'that’s correct', 'I agree', 'do it', 'exactly', 'sounds good']
-const noInputs = ['not really', 'I don’t think so', 'not interested', 'definitely not', 'I don’t want that', 'no', 'thanks but no', 'I disagree', 'don’t do it']
+// const yesInputs = ['confirm', 'ok', 'of course', 'sure', 'I don’t mind', 'yes', 'that’s correct', 'I agree', 'do it', 'exactly', 'sounds good']
+// const noInputs = ['not really', 'I don’t think so', 'not interested', 'definitely not', 'I don’t want that', 'no', 'thanks but no', 'I disagree', 'don’t do it']
 const helpInputs = ['What are the rules', 'How do I play', 'help', 'I need help', 'help me out', 'I’m not sure what to do', 'I don’t know what to say', 'I need a hint']
-const repeatInputs = ['Can you repeat that?', 'Please repeat yourself', 'Can you say that again?', 'Say again', 'Say that again', 'I didn’t hear you', 'Can you repeat that?', 'Go back', 'What did you say?', 'What?', 'What was that?',]
+const repeatInputs = ['Can you repeat that?', 'Please repeat yourself', 'Can you say that again?', 'Say again', 'Say that again', 'I didn’t hear you', 'Can you repeat that?', 'Go back', 'What did you say?', 'What?', 'What was that?']
 
 module.exports = {
 	
@@ -18,15 +17,15 @@ module.exports = {
 	},
 
 	[intents.REPEAT]: {
-		userPhrases:repeatInputs,
+		userPhrases: repeatInputs,
 		parameters: [],
 		contexts: [],
 		outputContexts: [],
-		action: actions.REPEAT
+		action: actions.REPEAT,
 	},
 
 	[intents.TALK_TO_HAWKINS]: {
-		userPhrases:[
+		userPhrases: [
 			'let me talk to hawkins',
 			'let me talk to the chief',
 			'I want to talk hawkins',
@@ -42,11 +41,11 @@ module.exports = {
 		parameters: [],
 		contexts: [],
 		outputContexts: [],
-		action: actions.ASKHAWKINS
+		action: actions.ASKHAWKINS,
 	},
 
 	[intents.ASKFORCASEFILE]: {
-		userPhrases:[
+		userPhrases: [
 			'Give me information on the case',
 			'Get more information',
 			'what is the evidence?',
@@ -59,8 +58,8 @@ module.exports = {
 			'Review the crime scene',
 			'Review the case file',
 			'Show me the crime scene',
-            'Tell me about the case',
-            'Tell me about the crime scene',
+			'Tell me about the case',
+			'Tell me about the crime scene',
 			'hawkins review the case file', 
 			'hawkins what is this case about',
 			'hawkins tell me about this case',
@@ -78,11 +77,11 @@ module.exports = {
 		parameters: [],
 		contexts: [],
 		outputContexts: [contexts.askhawkins],
-		action: actions.ASKHAWKINS
+		action: actions.ASKHAWKINS,
 	},
 
 	[intents.SUGGESTIONINTERVIEW]: {
-		userPhrases:[
+		userPhrases: [
 			'How do I interview?',
 			'how do I interview the suspects',
 			'What questions should I ask?',
@@ -93,31 +92,31 @@ module.exports = {
 			'What do I say?',
 			'What should I ask?',
 			'I don’t know what to say',
-			'Give me some suggested questions'
+			'Give me some suggested questions',
 		],
 		parameters: [],
 		contexts: [],
 		outputContexts: [contexts.askhawkins],
-		action: actions.ASKHAWKINS
+		action: actions.ASKHAWKINS,
 	},
 
 	[intents.SUGGESTIONCATCHKILLER]: {
-		userPhrases:[
+		userPhrases: [
 			'How do I catch the killer?',
 			'How do I catch the killer in a lie?',
 			'How do I win?',
 			'How do get a confession?',
 			'How do I accuse the killer?',
-			'How do I catch the lie?'
+			'How do I catch the lie?',
 		],
 		parameters: [],
 		contexts: [],
 		outputContexts: [contexts.askhawkins],
-		action: actions.ASKHAWKINS
+		action: actions.ASKHAWKINS,
 	},
 
 	[intents.INTRO_INTERROGATE]: {
-		userPhrases:[
+		userPhrases: [
 			'Interrogate',
 			'Question the suspects',
 			'Question another suspect',
@@ -133,7 +132,7 @@ module.exports = {
 			'interview another suspect',
 			'question another suspect',
 			'speak to suspects',
-			'can i speak to somebody else',
+			'can I speak to somebody else',
 			'talk to the next suspect',
 			'I want to talk to someone else',
 			'I would like to interrogate the suspects',
@@ -141,11 +140,11 @@ module.exports = {
 		parameters: [],
 		contexts: [],
 		outputContexts: [contexts.intro_interrogate_followup],
-		action: actions.INTRO_INTERROGATE_SUSPECTS
+		action: actions.INTRO_INTERROGATE_SUSPECTS,
 	},
 
 	[intents.INTRO_INTERROGATE_SELECT]: {
-		userPhrases:[
+		userPhrases: [
 			'@suspect',
 			'@suspect',
 			'@suspect',
@@ -157,11 +156,11 @@ module.exports = {
 		parameters: [{name: 'suspect'}],
 		contexts: [contexts.intro_interrogate_followup],
 		outputContexts: [contexts.question_suspect],
-		action: actions.SELECT_SUSPECT
+		action: actions.SELECT_SUSPECT,
 	},
 
 	[intents.SELECT_SUSPECT]: {
-		userPhrases:[
+		userPhrases: [
 			'Let me talk to @suspect',
 			'Let me talk with @suspect',
 			'Talk with @suspect',
@@ -184,11 +183,11 @@ module.exports = {
 		parameters: [{name: 'suspect'}],
 		contexts: [],
 		outputContexts: [contexts.question_suspect],
-		action: actions.SELECT_SUSPECT
+		action: actions.SELECT_SUSPECT,
 	},
 
 	[intents.LIST_SUSPECTS]: {
-		userPhrases:[
+		userPhrases: [
 			'Who are the suspects',
 			'Who are the other suspects',
 			'List of suspects',
@@ -208,11 +207,11 @@ module.exports = {
 		parameters: [],
 		contexts: [],
 		outputContexts: [],
-		action: actions.LIST_SUSPECTS
+		action: actions.LIST_SUSPECTS,
 	},
 
 	[intents.HOWTO]: {
-		userPhrases:[
+		userPhrases: [
 			'How to play',
 			'How do you play?',
 			'How do I play?',
@@ -230,11 +229,11 @@ module.exports = {
 		parameters: [],
 		contexts: [],
 		outputContexts: [],
-		action: actions.HOWTO
+		action: actions.HOWTO,
 	},
 
 	[intents.TOOGENERIC]: {
-		userPhrases:[
+		userPhrases: [
 			'What did she do?',
 			'What did he do?',
 			'How is that?',
@@ -245,18 +244,18 @@ module.exports = {
 		parameters: [],
 		contexts: [],
 		outputContexts: [],
-		action: actions.TOOGENERIC
+		action: actions.TOOGENERIC,
 	},
 
 
-	[intents.CANMULTIPLEPEOPLEMURDER]:{  
-		"userPhrases":[  
-			"can two people commit the murder"
+	[intents.CANMULTIPLEPEOPLEMURDER]: {  
+		"userPhrases": [  
+			"can two people commit the murder",
 		],
 		parameters: [],
 		contexts: [],
 		outputContexts: [],
-		action: actions.ASKHAWKINS
+		action: actions.ASKHAWKINS,
 	},
 
 }

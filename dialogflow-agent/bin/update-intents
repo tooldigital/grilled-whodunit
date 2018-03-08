@@ -1,16 +1,15 @@
 #!/usr/bin/env node
-
+/* global console, process, __dirname */
 /*
     updating intents is a special case because we need to pull the existing user phrases from DF
     then merge our updates in, and publish
 */ 
 
 const yargs = require('yargs')
-    .alias('i', 'input')
-    .alias('t', 'token')
+	.alias('i', 'input')
+	.alias('t', 'token')
 
 const run = require('./api').run
-const exec = require('child_process').exec
 const fs = require('fs')
 const path = require('path')
 const args = yargs.argv
@@ -21,91 +20,84 @@ const input = require(inputPath)
 const mapper = require('../../scraper/bin/mapper')
 
 let requestEachIntent = (intents) => {
-    let intentPromises = intents.map(intent => {
-        return run('get', 'intents', {id: intent.id, accessToken})
-    })
-    Promise.all(intentPromises)
-        .then(processIntents)
-        .catch(e => console.error(e))
+	let intentPromises = intents.map(intent => {
+		return run('get', 'intents', {id: intent.id, accessToken})
+	})
+	Promise.all(intentPromises)
+		.then(processIntents)
+		.catch(e => console.error(e))
 }
 
-let intentsInfo = run('get', 'intents', {accessToken})
-    .then(requestEachIntent)
-    .catch(e => console.error(e))
+run('get', 'intents', {accessToken})
+	.then(requestEachIntent)
+	.catch(e => console.error(e))
 
 let processIntents = (intents) => {
-    let cleanIntent = (intent) => {
-        return {
-            key: intent.name,
-            userSays: intent.userSays,
-            contexts: intent.contexts,
-            action: intent.responses[0].action,
-            parameters: intent.responses[0].parameters,
-            outputContexts: intent.responses[0].affectedContexts
-        }
-    }
-    let cleanIntents = intents.map(cleanIntent)
-    let processedIntents = combineIntents(input, cleanIntents)
-    saveNewIntents(processedIntents.newIntents)
-    //send(processedIntents.modifiedIntents).catch(e => console.error(e)):  NOTE:  this tool only used for mapping questions created on dialogflow
+	let cleanIntent = (intent) => {
+		return {
+			key: intent.name,
+			userSays: intent.userSays,
+			contexts: intent.contexts,
+			action: intent.responses[0].action,
+			parameters: intent.responses[0].parameters,
+			outputContexts: intent.responses[0].affectedContexts,
+		}
+	}
+	let cleanIntents = intents.map(cleanIntent)
+	let processedIntents = combineIntents(input, cleanIntents)
+	saveNewIntents(processedIntents.newIntents)
+	// NOTE:  this tool only used for mapping questions created on dialogflow
+	//send(processedIntents.modifiedIntents).catch(e => console.error(e)) 
 }
 
 const combineIntents = (toUpload, downloaded) => {
-    let newIntents = {}
-    let modifiedIntents = toUpload.concat([]) // clone
-    let getPhraseText = phrase => phrase.data.map(block => block.text).join('').trim()
-    downloaded.forEach((d) => {
-        let uploadItemInDownloads = modifiedIntents.find((t) => d.key === t.name)
-        if(uploadItemInDownloads){
-            d.userSays.forEach(downloadPhrase => {
-                // if a phrase isn't found in the downloaded intent, then add it to upload
-                let downloadText = getPhraseText(downloadPhrase)
-                let exists = uploadItemInDownloads.userSays.map(uploadPhrase => {
-                    let uploadText = getPhraseText(uploadPhrase)
-                    return downloadText === uploadText
-                }).reduce((a, b) => a || b)
+	let newIntents = {}
+	let modifiedIntents = toUpload.concat([]) // clone
+	let getPhraseText = phrase => phrase.data.map(block => block.text).join('').trim()
+	downloaded.forEach((d) => {
+		let uploadItemInDownloads = modifiedIntents.find((t) => d.key === t.name)
+		if(uploadItemInDownloads){
+			d.userSays.forEach(downloadPhrase => {
+				// if a phrase isn't found in the downloaded intent, then add it to upload
+				let downloadText = getPhraseText(downloadPhrase)
+				let exists = uploadItemInDownloads.userSays.map(uploadPhrase => {
+					let uploadText = getPhraseText(uploadPhrase)
+					return downloadText === uploadText
+				}).reduce((a, b) => a || b)
 
-                if(!exists){
-                    console.log(`new phrase for ${d.key}: ${getPhraseText(downloadPhrase)}`)
-                    uploadItemInDownloads.userSays.push(downloadPhrase)
-                }
-            })
-        }else{
-            newIntents[d.key] = d
-        }
-    })
-    return {
-        newIntents,
-        modifiedIntents
-    }
+				if(!exists){
+					console.log(`new phrase for ${d.key}: ${getPhraseText(downloadPhrase)}`)
+					uploadItemInDownloads.userSays.push(downloadPhrase)
+				}
+			})
+		}else{
+			newIntents[d.key] = d
+		}
+	})
+	return {
+		newIntents,
+		modifiedIntents,
+	}
 }
 
 const saveNewIntents = (newIntents) => {
-    const newIntentsCap = 'module.exports = '
-    if(Object.keys(newIntents).length) {
-        let fileText = `${newIntentsCap} ${JSON.stringify(newIntents)}`
-        fs.writeFile(path.resolve(__dirname, '../intents/new-intents.js'), fileText, (err) => {
-            if (err) throw err
-            console.log('The NEW INTENTS have been saved!')
-            createNewMappings()
-        })
-    }
-
+	const newIntentsCap = 'module.exports = '
+	if(Object.keys(newIntents).length) {
+		let fileText = `${newIntentsCap} ${JSON.stringify(newIntents)}`
+		fs.writeFile(path.resolve(__dirname, '../intents/new-intents.js'), fileText, (err) => {
+			if (err) throw err
+			console.log('The NEW INTENTS have been saved!')
+			createNewMappings()
+		})
+	}
 }
 
 const createNewMappings = () => {
-
-    // let cm = path.resolve(__dirname, '../../scraper/bin/createmap')
-    // exec(`${cm} ${path.resolve(__dirname, '../intents/new-intents.js')}`, (err, stdout, stderr) => {
-    //         if (err) return console.error(err)
-    //         console.log(stdout)
-    //     }
-    // )
-    mapper(path.resolve(__dirname, '../intents/new-intents.js'))
+	return mapper(path.resolve(__dirname, '../intents/new-intents.js'))
 }
 
-const send = (intents) => {
-    return Promise.all(intents.map(i => [i]).map(intent => {
-        return run('put', 'intents', {input: intent, accessToken})
-    }))
-}
+// const send = (intents) => {
+// 	return Promise.all(intents.map(i => [i]).map(intent => {
+// 		return run('put', 'intents', {input: intent, accessToken})
+// 	}))
+// }

@@ -1,4 +1,4 @@
-const keys = require('../../intent-keys')
+const keys = require('../../config/intent-keys')
 
 const suggestPrimers = [
 	'I have an idea.',
@@ -6,7 +6,6 @@ const suggestPrimers = [
 	'Can I make a suggestion?',
 ]
 const suggest = () => suggestPrimers[Math.floor(Math.random() * suggestPrimers.length)] + '<break time=".2s"/> '
-
 
 module.exports = {
 	common: [
@@ -22,7 +21,6 @@ module.exports = {
 		{key: keys.HOWLONGKNOWBETSY, 		text: suggest() + 'Try asking, "How long have you known Betsy?"'},
 		{key: 'PROMPT_COMPARE_ANSWERS', 	text: suggest() + 'Try asking each suspect the same questions and compare their answers.'},
 		{key: keys.DIDYOUKILLHER, 			text: suggest() + 'Try asking if the suspect killed Betsy.'},
-		// {key: keys.DIDYOUKILLHER, 			text: 'Try asking, Did you kill Betsy?'},
 		{key: 'PROMPT_EVIDENCE', 			text: suggest() + 'Go back and listen to the case file. Has anyone mentioned a piece of evidence they shouldn’t have known about?'},
 		{key: keys.ANGRYWITHBETSY, 			text: suggest() + 'Try asking the suspect if they were angry at Betsy.'},
 		{key: keys.BETSYDOSOMETHINGTOYOU, 	text: suggest() + 'Try asking, "Did Betsy do something to you?"'},
@@ -32,29 +30,29 @@ module.exports = {
 		[
 			{
 				key: 'HINT_BRANDI_ALIBI',
-				text: 'I have a hunch. Talk to Tucker and ask him where he was on the night of the murder.'
-			}
+				text: 'I have a hunch. Talk to Tucker and ask him where he was on the night of the murder.',
+			},
 		],
 		// pete is killer. suggest asking him a question that will reveal that he knows about turpentine
 		[
 			{
 				key: 'HINT_PETE_EVIDENCE',
-				text: 'Maybe Pete knows something. Ask who he thinks killed Betsy.'
-			}
+				text: 'Maybe Pete knows something. Ask who he thinks killed Betsy.',
+			},
 		],
 		// constance is killer. suggest questions that will reveal faulty alibi
 		[
 			{
 				key: 'HINT_BRANDI_ALIBI',
-				text: 'I think I know what\'s going on here. Ask Brandi about her father.'
-			}
+				text: 'I think I know what\'s going on here. Ask Brandi about her father.',
+			},
 		],
 		// tucker is killer. suggest questions that will reveal his knowledge of the closet
 		[
 			{
 				key: 'HINT_TUCKER_EVIDENCE',
-				text: 'Tucker might know something. Ask who he thinks killed Betsy.'
-			}
-		]
-	]
+				text: 'Tucker might know something. Ask who he thinks killed Betsy.',
+			},
+		],
+	],
 }

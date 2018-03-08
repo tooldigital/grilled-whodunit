@@ -18,15 +18,15 @@ const intents = {
 			'What would she do to ruin you?',
 			'What kind of terrible deeds?',
 		],
-		parameters:  [{ name:'betsy', opts:{ required: false }}]
+		parameters: [{ name: 'betsy', opts: { required: false }}],
 	},
 
 	[keys.CONST_WHOSON]: {
 		userPhrases: [
-		'Who is your son?',
-		'Who’s your son?',
-		'What is your son’s name?',
-		]
+			'Who is your son?',
+			'Who’s your son?',
+			'What is your son’s name?',
+		],
 	},
 
 	[keys.CONST_WHATREADING]: {
@@ -145,8 +145,8 @@ const intents = {
 			'How did she humiliate her?',
 			'How did Betsy humiliate Brandi?',
 		],
-		parameters:  [{ name:'betsy', opts:{ required: false }}],
-		outputContexts: [contexts.doyoutrustothersuspect]
+		parameters: [{ name: 'betsy', opts: { required: false }}],
+		outputContexts: [contexts.doyoutrustothersuspect],
 	},
 
 	[keys.CONST_WHATTALKABOUTWITHGD]: {
@@ -162,7 +162,7 @@ const intents = {
 			'What time did you go to sleep?',
 			'What time did you turn out the light?',
 			'When did you go to sleep?',
-			],
+		],
 	},
 
 	[keys.CONST_CATCH_IN_LIE]: {
@@ -174,7 +174,7 @@ const intents = {
 		],
 	},
 
-/////
+	/////
 
 	[keys.CONST_WHYBRANDYROUGH]: {
 		userPhrases: [
@@ -219,12 +219,12 @@ const intents = {
 		],
 	},
 
-   [keys.CONST_CHARASS]:{  
-      "userPhrases":[  
-         "what do you mean character assassination",
-         "what character assassination"
-      ]
-   },
+	[keys.CONST_CHARASS]: {  
+		"userPhrases": [  
+			"what do you mean character assassination",
+			"what character assassination",
+		],
+	},
 
 }
 
@@ -234,4 +234,4 @@ Object.keys(intents).forEach((k) => {
 	if(!intents[k].parameters) intents[k].parameters = []
 })
 
-module.exports = intents;
+module.exports = intents

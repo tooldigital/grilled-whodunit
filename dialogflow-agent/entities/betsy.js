@@ -9,6 +9,6 @@ module.exports = new Entity('betsy', [
 			'Betsy Harris',
 			'Ms Harris',
 			'Mrs Harris',
-		]
+		],
 	},
 ])

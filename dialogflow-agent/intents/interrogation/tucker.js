@@ -84,7 +84,7 @@ const intents = {
 	[keys.TUCKER_WHOBRANDIGM]: {
 		userPhrases: [
 			'Who is Brandi’s grandmother?',
-			'Who is your girlfriend’s grandmother?'
+			'Who is your girlfriend’s grandmother?',
 		],
 	},
 	[keys.TUCKER_WHEREBRANDYGO]: {
@@ -160,7 +160,7 @@ const intents = {
 		userPhrases: [
 			`Why did you take a shower last night?`,
 			`Did you take a shower last night?`,
-			`Brandi said you took a shower.`
+			`Brandi said you took a shower.`,
 		],
 	},
 	[keys.TUCKER_CATCH_IN_LIE]: {
@@ -168,7 +168,7 @@ const intents = {
 			`How do you know that Betsy was locked in a broom closet?`,
 			`How did you know about the broom closet?`,
 			`How did you know about the closet?`,
-			`How did you know she was locked in the closed?`
+			`How did you know she was locked in the closed?`,
 		],
 	},
 
@@ -179,7 +179,7 @@ const intents = {
 	[keys.TUCKER_HOWLONGWORKBETSY]: {
 		userPhrases: [
 			"how long have you worked with Betsy",
-			"how long did you work for Betsy"
+			"how long did you work for Betsy",
 		],
 	},
 
@@ -192,7 +192,7 @@ const intents = {
 			"was Brandi asleep",
 			"did Brandy go to sleep",
 			"on the night of the murder when you were with Brandi did she go to sleep",
-			"was "
+			"was ",
 		],
 	},
 
@@ -201,25 +201,25 @@ const intents = {
 	},
 
 	
-	[keys.TUCKER_PETEFIRED]:{  
-		"userPhrases":[  
-			"were you fired"
-		]
+	[keys.TUCKER_PETEFIRED]: {  
+		"userPhrases": [  
+			"were you fired",
+		],
 	},
-	[keys.TUCKER_BETSYFIRED]:{  
-		"userPhrases":[  
-			"did Betsy fire you"
-		]
+	[keys.TUCKER_BETSYFIRED]: {  
+		"userPhrases": [  
+			"did Betsy fire you",
+		],
 	},
 
 }
 
 Object.keys(intents).forEach((k) => {
 	intents[k].contexts = [contexts.question_suspect]
-	if(!intents[k].outputContexts) intents[k].outputContexts = [];
-	if(!intents[k].parameters) intents[k].parameters = [];
+	if(!intents[k].outputContexts) intents[k].outputContexts = []
+	if(!intents[k].parameters) intents[k].parameters = []
 })
 
-module.exports = intents;
+module.exports = intents
 
 

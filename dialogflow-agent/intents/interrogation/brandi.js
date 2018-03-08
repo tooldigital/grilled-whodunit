@@ -153,7 +153,7 @@ const intents = {
 			`Why did Tucker go out?`,
 		],
 	},
-///
+	///
 
 
 	[keys.BRANDI_WHEREBFLASTNIGHT]: {
@@ -168,7 +168,7 @@ const intents = {
 			"Brandy when did you work for @betsy",
 			"When did you work at the restaurant",
 		],
-		parameters:  [{ name:'betsy', opts:{ required: false }}],
+		parameters: [{ name: 'betsy', opts: { required: false }}],
 	},
 	[keys.BRANDI_NIGHTOF]: {
 		userPhrases: [
@@ -180,7 +180,7 @@ const intents = {
 			"what is your boyfriends connection to @betsy",
 			"does @betsy know your boyfriend",
 		],
-		parameters:  [{ name:'betsy', opts:{ required: false }}],
+		parameters: [{ name: 'betsy', opts: { required: false }}],
 	},
 	[keys.BRANDI_LIKEGRANDMOTHER]: {
 		userPhrases: [
@@ -217,13 +217,13 @@ const intents = {
 		],
 	},
 
-	[keys.BRANDI_WHATDOINGWITHBOYFRIEND]:{  
-      "userPhrases":[  
-         "what were you doing at your boyfriend's apartment",
-         "what were you doing with your boyfriend",
-         "what did you and your boyfriend do"
-      ]
-   },
+	[keys.BRANDI_WHATDOINGWITHBOYFRIEND]: {  
+		"userPhrases": [  
+			"what were you doing at your boyfriend's apartment",
+			"what were you doing with your boyfriend",
+			"what did you and your boyfriend do",
+		],
+	},
    
 }
 

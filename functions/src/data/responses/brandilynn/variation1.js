@@ -1,5 +1,5 @@
-//BrandiLynn Variation 2
-const keys = require('../../../intent-keys.js')
+// BrandiLynn Variation 2
+// const keys = require('../../../config/intent-keys')
 module.exports = {
 
 }

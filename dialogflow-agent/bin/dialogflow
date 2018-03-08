@@ -1,24 +1,24 @@
 #!/usr/bin/env node
-
+/* globals console, __dirname, process */
 /**
-    
-    deploy objects to dialogflow
+	
+	deploy objects to dialogflow
 
 */ 
 
 // https://github.com/yargs/yargs/blob/HEAD/docs/examples.md
 const yargs = require('yargs')
-    .demandCommand(2)
-    .alias('i', 'input')
-    .alias('t', 'token')
-    .usage('Usage: $0 <operation> <endpoint> <optionalID> --input=[path] --token=[tokenName]')
-    .usage('Input js should be an array of objects')
-    .usage('Create access token files in .access_tokens directory. https://dialogflow.com/docs/reference/agent/')
-    .example('$0 post entities --input=path/to/entities.js --token=dev', 'create entities for dev app')
-    .example('$0 put intents -i=path/to/intents.js -t=prod', 'update intents for prod app')
-    .example('$0 get intents 05b02338-63b5-4a86-a08e-409ef5b5f208', 'get an intent from dev app')
-    .example('$0 get intents >> output.json', 'get all intents and write to a file')
-    .epilog('Created by Tool of North America')
+	.demandCommand(2)
+	.alias('i', 'input')
+	.alias('t', 'token')
+	.usage('Usage: $0 <operation> <endpoint> <optionalID> --input=[path] --token=[tokenName]')
+	.usage('Input js should be an array of objects')
+	.usage('Create access token files in .access_tokens directory. https://dialogflow.com/docs/reference/agent/')
+	.example('$0 post entities --input=path/to/entities.js --token=dev', 'create entities for dev app')
+	.example('$0 put intents -i=path/to/intents.js -t=prod', 'update intents for prod app')
+	.example('$0 get intents 05b02338-63b5-4a86-a08e-409ef5b5f208', 'get an intent from dev app')
+	.example('$0 get intents >> output.json', 'get all intents and write to a file')
+	.epilog('Created by Tool of North America')
 
 const path = require('path')
 const fs = require('fs')
@@ -34,12 +34,12 @@ const accessToken = fs.readFileSync(path.resolve(__dirname, `../.access_tokens/$
 
 var inputPath, input
 if(args.input){
-    inputPath = path.resolve(process.cwd(), args.input)
-    input = require(inputPath)
+	inputPath = path.resolve(process.cwd(), args.input)
+	input = require(inputPath)
 }
 
 run(operation, type, {input, id, accessToken}).then(res => {
-    console.log(res)
+	console.log(res)
 }).catch(e => {
-    console.error(e)
+	console.error(e)
 })
