@@ -74,6 +74,8 @@ These sessions helped bolster our repertoire of inputs, informed the writing, an
 
 Observing the users struggle through the early versions helped us restructure to make it easier to navigate the story. And it gave us suggestions on how to ease pain-points.
 
+![suspects](./docs/suspects.gif)
+
 # Tech
 
 This project uses [Dialogflow](https://dialogflow.com) for processing user inputs, and a NodeJS [Cloud Function](https://firebase.google.com/docs/functions/) for determining responses.
@@ -127,8 +129,6 @@ In order to impart some personality in our characters, we used the prosody tag. 
 ## Account setup
 
 [Create a new Dialogflow agent](https://dialogflow.com/docs/getting-started/building-your-first-agent), then delete the default intents.
-
-**Make sure billing is enabled on the Google cloud project.**
 
 ## Deploying
 
