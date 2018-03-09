@@ -1,6 +1,6 @@
-//BrandiLynn Interrogation
-const keys = require('../../../functions/src/intent-keys')
-const contexts = require('../../../functions/src/context-keys')
+// BrandiLynn Interrogation
+const keys = require('../../../functions/src/config/intent-keys')
+const contexts = require('../../../functions/src/config/context-keys')
 const intents = {
 
 	[keys.BRANDI_WHOBOYFRIEND]: {
@@ -153,8 +153,6 @@ const intents = {
 			`Why did Tucker go out?`,
 		],
 	},
-	///
-
 
 	[keys.BRANDI_WHEREBFLASTNIGHT]: {
 		userPhrases: [
@@ -217,14 +215,14 @@ const intents = {
 		],
 	},
 
-	[keys.BRANDI_WHATDOINGWITHBOYFRIEND]: {  
-		"userPhrases": [  
+	[keys.BRANDI_WHATDOINGWITHBOYFRIEND]: {
+		userPhrases: [
 			"what were you doing at your boyfriend's apartment",
 			"what were you doing with your boyfriend",
 			"what did you and your boyfriend do",
 		],
 	},
-   
+ 
 }
 
 Object.keys(intents).forEach((k) => {

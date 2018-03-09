@@ -76,8 +76,10 @@ const actionHandlers = {
 
 }
 
-/*
-	wrapper for app.ask that tracks previous responses so we can repeat them if needed
+/**
+*
+*	Wrapper for app.ask that tracks previous responses so we can repeat them if needed
+*
 */
 const ask = (app, inputPrompt, noInputPrompts) => {
 	app.data.prevInputPrompt = inputPrompt
@@ -85,8 +87,10 @@ const ask = (app, inputPrompt, noInputPrompts) => {
 	app.ask(inputPrompt, noInputPrompts)
 }
 
-/*
-	This is the entry point, called when Actions on Google posts to the webhook
+/**
+*
+*	This is the entry point, called when Actions on Google posts to the webhook
+*
 */
 exports.https = functions.https.onRequest((request, response) => {
 	let result = request.body.result
@@ -112,8 +116,10 @@ exports.https = functions.https.onRequest((request, response) => {
 	}
 })
 
-/*
-	same as above, but deploying these will yield a separate endpoint for different app versions
+/**
+*
+*	same as above, but deploying these will yield a separate endpoint for different app versions
+*
 */
 exports.devhttps = exports.https
 exports.stagehttps = exports.https

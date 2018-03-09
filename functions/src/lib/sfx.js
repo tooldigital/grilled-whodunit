@@ -28,7 +28,8 @@ const suspectSFX = {
 module.exports = {
 	init: (app) => {
 		app.data.sfx = {
-			playSwitch: 0,
+			playSwitch: 2,
+			interval: 4,
 			[suspects.BRANDI]: {
 				idx: 0,
 			},
@@ -46,9 +47,7 @@ module.exports = {
 	addSFXPeriodically: (app, intent, suspect, response) => {
 		let sfx = app.data.sfx
 		sfx.playSwitch ++
-		console.log("sfx.idx:", sfx[suspect].idx)
-		console.log("playSwitch modulus", sfx.playSwitch % 2)
-		if(sfx.playSwitch % 3 === 0) { // prepend a sound effect to the suspect response every other time
+		if(sfx.playSwitch % app.data.sfx.interval === 0) { // prepend a sound effect to the suspect response every other time
 			response = Utils.speak(
 				`<audio src="${media.sfx[suspect][sfx[suspect].idx]}"/>` +
 				response

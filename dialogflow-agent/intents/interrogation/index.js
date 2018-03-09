@@ -1,7 +1,7 @@
-const Intent = require('../intent')
-const contexts = require('../../../functions/src/context-keys')
-const actions = require('../../../functions/src/action-keys')
-const suspects = require('../../../functions/src/data/suspects')
+const Intent = require('../../lib/intent')
+const contexts = require('../../../functions/src/config/context-keys')
+const actions = require('../../../functions/src/config/action-keys')
+const suspects = require('../../../functions/src/config/suspects')
 const general = require('./general')
 const suspectIntents = {
 	[suspects.BRANDI]: require('./brandi'),

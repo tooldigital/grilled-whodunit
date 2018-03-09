@@ -38,7 +38,7 @@ module.exports = {
 		evidenceError: 'Try simplifying your answer. If the suspect lied about their alibi say "his alibi," or if it was a piece of evidence name the specific thing.',
 	},
 	goodbye: 'See you around, detective.',
-	youwin: '<emphasis level="strong">Congratulations! You’ve found the killer!<break time=".8s" /></emphasis> Would you like to play again?',
+	youwin: '<emphasis level="strong">Congratulations! You’ve found the killer and solved Grilled Murder Mystery!<break time=".8s" /></emphasis>The good people of Lockhart are forever in your debt.<break time=".7s" /> Would you like to play again?',
 	youlose: 'You chose <break time=".5s" /> poorly. Would you like to try again?',
 	suggestioninterview: 'If you want to interrogate a suspect, you can say something like, "Let me talk to Tucker." ' + suspectList,
 	[keys.CANMULTIPLEPEOPLEMURDER]: `Only one of the suspects is the killer.`,

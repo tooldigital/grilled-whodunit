@@ -1,9 +1,7 @@
 //general intents
-const actions = require('../../functions/src/action-keys')
-const intents = require('../../functions/src/intent-keys')
-const contexts = require('../../functions/src/context-keys')
-// const yesInputs = ['confirm', 'ok', 'of course', 'sure', 'I don’t mind', 'yes', 'that’s correct', 'I agree', 'do it', 'exactly', 'sounds good']
-// const noInputs = ['not really', 'I don’t think so', 'not interested', 'definitely not', 'I don’t want that', 'no', 'thanks but no', 'I disagree', 'don’t do it']
+const actions = require('../../functions/src/config/action-keys')
+const intents = require('../../functions/src/config/intent-keys')
+const contexts = require('../../functions/src/config/context-keys')
 const helpInputs = ['What are the rules', 'How do I play', 'help', 'I need help', 'help me out', 'I’m not sure what to do', 'I don’t know what to say', 'I need a hint']
 const repeatInputs = ['Can you repeat that?', 'Please repeat yourself', 'Can you say that again?', 'Say again', 'Say that again', 'I didn’t hear you', 'Can you repeat that?', 'Go back', 'What did you say?', 'What?', 'What was that?']
 
@@ -177,8 +175,6 @@ module.exports = {
 			'Question @suspect',
 			'Can we go back to @suspect',
 			'Can I talk to @suspect',
-			// 'Hey Google, Can I talk to @suspect',
-			// 'OK Google, talk to @suspect',
 		],
 		parameters: [{name: 'suspect'}],
 		contexts: [],
@@ -247,18 +243,13 @@ module.exports = {
 		action: actions.TOOGENERIC,
 	},
 
-
-	[intents.CANMULTIPLEPEOPLEMURDER]: {  
-		"userPhrases": [  
-			"can two people commit the murder",
+	[intents.CANMULTIPLEPEOPLEMURDER]: { 
+		userPhrases: [ 
+			'can two people commit the murder',
 		],
 		parameters: [],
 		contexts: [],
 		outputContexts: [],
 		action: actions.ASKHAWKINS,
 	},
-
 }
-
-
-

@@ -1,5 +1,4 @@
-//Evidence
-const Entity = require('./entity')
+const Entity = require('../lib/entity')
 module.exports = new Entity('evidence', [
 	{
 		value: 'paint thinner',

@@ -2,3 +2,6 @@ node_modules
 .access_tokens
 output.json
 /intents/new-intents.js
+*.csv
+npm_debug.log
+new_mappings

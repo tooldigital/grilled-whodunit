@@ -4,9 +4,10 @@ module.exports = {
 	
 	init(app){
 		app.data.realizations = {
-			counter: -1,
+			counter: 1,
 			currentLevel: 1,
 			currentIDX: 0,
+			interval: 3,
 			level1: Array.from(data.level1, r => r.key),
 			level2: Array.from(data.level2, r => r.key),
 		}
@@ -57,7 +58,7 @@ module.exports = {
 	},
 	_canAddRealization(r, v, intent, suspect){
 		return (
-			r.counter % 3 === 0 && // add realization hint every third question
+			r.counter % r.interval === 0 && // add realization hint every third question
 			data.ignoredIntents.variations[v][suspect].indexOf(intent) < 0 // some responses have too much info, or don't fit with the realziation hints
 		)
 	},

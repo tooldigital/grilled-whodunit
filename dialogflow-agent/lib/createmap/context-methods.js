@@ -1,10 +1,9 @@
 /* global console, __dirname*/
-//intent methods
 
 const fs = require('fs-extra')
 const path = require('path')
 
-const contextKeyPath = path.resolve(__dirname, '../../functions/src/context-keys.js')
+const contextKeyPath = path.resolve(__dirname, '../../../functions/src/config/context-keys.js')
 const contextKeys = require(contextKeyPath)
 const contextFileHead = `const utils = require('./utils')
 const suspects = require('./data/suspects')

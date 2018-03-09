@@ -2,3 +2,4 @@ node_modules/
 .DS_Store
 scraper/new_mappings
 npm_debug.log
+.vscode/

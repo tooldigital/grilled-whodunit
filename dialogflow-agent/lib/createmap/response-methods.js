@@ -4,7 +4,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 const utils = require('./utils')
-const responsesPath = path.resolve(__dirname, '../../functions/src/data/responses')
+const responsesPath = path.resolve(__dirname, '../../../functions/src/data/responses')
 const responses = require(responsesPath)
 //TODO: look through entire response tree to check if key exists
 
@@ -45,7 +45,7 @@ module.exports = {
 			.split('}').join('\n\n}')
 			.split(',').join(',\n\t')
 
-		fs.outputFile(path.resolve(__dirname, '../new_mappings/responses.js'), output, (err) => {
+		fs.outputFile(path.resolve(__dirname, '../../new_mappings/responses.js'), output, (err) => {
 			if (err) throw err
 			console.log('A new responses file has been updated!')
 		})

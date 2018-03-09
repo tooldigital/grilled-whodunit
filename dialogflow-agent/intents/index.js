@@ -2,10 +2,9 @@
 
 const fs = require('fs')
 const util = require('util')
-// const intents = require('../../functions/src/intent-keys')
 
 // assign entities to pull into example phrases
-const Intent = require('./intent')
+const Intent = require('../lib/intent')
 Intent.entities = {
 	suspect: require('../entities/suspect'),
 	evidence: require('../entities/evidence'),
@@ -16,18 +15,6 @@ Intent.entities = {
 const general = require('./general')
 const reservedIntents = require('./reserved-intents.js')
 const interrogation = require('./interrogation/')
-
-// const ignoreIntentKeys = [ // this needs to be synced up with reserved-intents.js
-// 	intents.FALLBACK,
-// 	intents.QUESTION_SUSPECT_FALLBACK,
-// 	intents.NEW_GAME,
-// 	intents.PRESSCHARGES,
-// 	intents.PRESSCHARGES_KILLER,
-// 	intents.PRESSCHARGES_EVIDENCE,
-// 	intents.PRESSCHARGES_EVIDENCE_FALLBACK,
-// 	intents.REPLAY_YES,
-// 	intents.REPLAY_NO,
-// ]
 
 let output = Object.keys(general).map((k) => {
 	let i = general[k]

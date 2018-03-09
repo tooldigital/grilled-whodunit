@@ -1,6 +1,6 @@
 //Buck Interrogation
-const keys = require('../../../functions/src/intent-keys')
-const contexts = require('../../../functions/src/context-keys')
+const keys = require('../../../functions/src/config/intent-keys')
+const contexts = require('../../../functions/src/config/context-keys')
 const intents = {
 
 	[keys.PETE_WHODAUGHTER]: {
@@ -9,13 +9,15 @@ const intents = {
 			'What is your daughter’s name?',
 		],
 	},
+
 	[keys.PETE_WHYGOOUTOFBUSINESS]: {
 		userPhrases: [
 			'Why are you going out of business?',
 			'You are going out of business?',
 			'What happened with the business?',
 		],
-	},	
+	},
+
 	[keys.PETE_WHATSPEAKABOUTDAUGHTER]: {
 		userPhrases: [
 			'What did you speak about with your daughter?',
@@ -23,6 +25,7 @@ const intents = {
 			'What did Brandi say?',
 		],
 	},
+
 	[keys.PETE_WHOMOTHER]: {
 		userPhrases: [
 			'Who is your mother?',
@@ -31,12 +34,14 @@ const intents = {
 			'Is Constance Florentine your mother?',
 		],
 	},
+
 	[keys.PETE_HOWBETSYPUTYOUOUTBIZ]: {
 		userPhrases: [
 			'How was she trying to ruin your business?',
 			'Why was Betsy trying to put you out of business?',
 		],
 	},
+
 	[keys.PETE_WHYDAUGHTERFIRED]: {
 		userPhrases: [
 			'Why did she get fired?', 
@@ -45,12 +50,14 @@ const intents = {
 			'Why did Betsy fire Brandy',
 		],
 	},
+
 	[keys.PETE_WHYDAUGHTERWORKFORCOMP]: {
 		userPhrases: [
 			'Why did she work for your competitor?', 
 			'Why did your daughter work for Betsy?',
 		],
 	},
+
 	[keys.PETE_WHODAUGHTERBF]: {
 		userPhrases: [
 			'Who is your daughter\'s boyfriend?',
@@ -58,12 +65,14 @@ const intents = {
 			'Who is Brandy\'s boyfriend?',
 		],
 	},
+
 	[keys.PETE_WHYYOURFAULT]: {
 		userPhrases: [
 			'Why is this your fault?',
 			'Why do you think this is your fault?',
 		],
 	},
+
 	[keys.PETE_WHYTUCKERHAPPY]: {
 		userPhrases: [
 			'Why would Tucker be happy?',
@@ -73,18 +82,21 @@ const intents = {
 			'How would Tucker be stinking rich?',
 		],
 	},
+
 	[keys.PETE_WHYANGRYWITHBETSY]: {
 		userPhrases: [
 			'What reasons did you have to be angry with Betsy?',
 			'Why were you angry with Betsy?',
 		],
 	},
+
 	[keys.PETE_WHYENEMYOFFAM]: {
 		userPhrases: [
 			'Why was she an enemy of the family?',
 			'Why did Betsy hate your family?',
 		],
 	},
+
 	[keys.PETE_BETSYHATEBEFOREBORN]: {
 		userPhrases: [
 			'Why did she hate you before you were born?',
@@ -92,6 +104,7 @@ const intents = {
 			'She hated you before you were born?',
 		],
 	},
+
 	[keys.PETE_WHEREDAUGHTERGOING]: {
 		userPhrases: [
 			'Where was Brandi going?',
@@ -100,30 +113,35 @@ const intents = {
 			'Do you know where Brandi was going?',
 		],
 	},
+
 	[keys.PETE_WHYNOTTRUSTTUCKER]: {
 		userPhrases: [
 			'Why don’t you trust Tucker?',
 			'What do you have against Tucker?',
 		],
 	},
+
 	[keys.PETE_HOWFARRESTAURANTFROMBETSY]: {
 		userPhrases: [
 			'How far is your restaurant from Betsy’s?',
 			'How far is your place from hers?',
 		],
 	},
+
 	[keys.PETE_BRANDICALLLASTNIGHT]: {
 		userPhrases: [
 			'Brandi called you last night is that true?',
 			'Did brandi call you last night?',
 		],
 	},
+
 	[keys.PETE_ALONELASTNIGHT]: {
 		userPhrases: [
 			`Where you alone last night?`,
 			`Did you see your mother last night?`,
 		],
 	},
+
 	[keys.PETE_CATCH_IN_LIE]: {
 		userPhrases: [
 			`How did you know turpentine was used?`,
@@ -131,6 +149,7 @@ const intents = {
 			`How did you know about the turpentine?`,
 		],
 	},
+
 	[keys.PETE_DIDBETSYHATEBRANDI]: {
 		userPhrases: [
 			"did @betsy hate brandi?",
@@ -139,6 +158,7 @@ const intents = {
 		],
 		parameters: [{ name: 'betsy', opts: { required: false }}],
 	},
+
 	[keys.PETE_WHYBRANDICALL]: {
 		userPhrases: [
 			"why did she call you",
@@ -147,6 +167,7 @@ const intents = {
 			"what did you and Brandi talk about",
 		],
 	},
+
 	[keys.PETE_WHATDAUGHTERRAMBLING]: {
 		userPhrases: [
 			"what what was your daughter rambling about",
@@ -155,6 +176,7 @@ const intents = {
 		parameters: [{ name: 'betsy', opts: { required: false }}],
 		outputContexts: [contexts.doyoutrustothersuspect],
 	},
+
 	[keys.PETE_DIDDAUGHTERWORKFORBETSY]: {
 		userPhrases: [
 			"did your daughter work for @betsy",
@@ -163,7 +185,6 @@ const intents = {
 		parameters: [{ name: 'betsy', opts: { required: false }}],
 		outputContexts: [contexts.doyoutrustothersuspect],
 	},
-	
 }
 
 Object.keys(intents).forEach((k) => {

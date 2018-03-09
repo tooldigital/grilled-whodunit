@@ -17,7 +17,7 @@ const utils = {
 	},
 
 	/**
-		level: strong | moderate | none | reduced
+	*	level: strong | moderate | none | reduced
 	*/
 	emphasis(content, level='none'){
 		return `<emphasis level="${level}">${content}</emphasis>`
@@ -30,7 +30,7 @@ const utils = {
 	},
 
 	/**
-		forward all contexts (and extend lifespan to account for it)
+	*	forward all contexts (and extend lifespan to account for it)
 	*/
 	forwardAllContexts(app){
 		app.getContexts().forEach(ctx => { 

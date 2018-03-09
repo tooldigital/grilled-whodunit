@@ -1,6 +1,6 @@
-//Constance Interrogation
-const keys = require('../../../functions/src/intent-keys')
-const contexts = require('../../../functions/src/context-keys')
+// Constance Interrogation
+const keys = require('../../../functions/src/config/intent-keys')
+const contexts = require('../../../functions/src/config/context-keys')
 const intents = {
 
 	[keys.CONST_WHATTERRIBLETHINGS]: {
@@ -174,8 +174,6 @@ const intents = {
 		],
 	},
 
-	/////
-
 	[keys.CONST_WHYBRANDYROUGH]: {
 		userPhrases: [
 			"Constance why you think she's rough around the edges",
@@ -219,8 +217,8 @@ const intents = {
 		],
 	},
 
-	[keys.CONST_CHARASS]: {  
-		"userPhrases": [  
+	[keys.CONST_CHARASS]: {
+		userPhrases: [
 			"what do you mean character assassination",
 			"what character assassination",
 		],

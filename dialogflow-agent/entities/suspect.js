@@ -1,5 +1,5 @@
-const Entity = require('./entity')
-const suspects = require('../../functions/src/data/suspects')
+const Entity = require('../lib/entity')
+const suspects = require('../../functions/src/config/suspects')
 module.exports = new Entity('suspect', [
 	{
 		value: suspects.TUCKER,

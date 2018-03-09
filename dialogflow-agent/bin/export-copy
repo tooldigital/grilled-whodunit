@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+/* global console, __dirname */
+const fs = require('fs')
+const path = require('path')
+
+const responses = require('../../functions/src/data/responses/')
+const fallbackhints = require('../../functions/src/data/responses/hints')
+
+let outputresponses = [],
+	outputfallbackhints = []
+
+const loopList = (list, destination, keyConcat) => {
+
+	let cb = (a, idx) => {
+		let item = (type === 'array') ? a : list[a]
+		let key = (type === 'array') ? idx : a
+		if( typeof item === 'string' ) { //if string append to flattened output
+			destination.push({
+				key: keyConcat + '_' + key,
+				response: item,
+			})
+		} else if( // if array or object recurse
+			Array.isArray(item) ||
+			(
+				item instanceof Object &&
+				!(item instanceof Function)
+			)
+		){
+			loopList(item, destination, keyConcat + '_' + key)
+		}
+	}
+
+	let type = (Array.isArray(list)) ? 'array' : 'object'
+	if(type === 'array') {
+		list.forEach(cb)
+	} else { 
+		Object.keys(list).forEach(cb)
+	}
+}
+
+loopList(responses, outputresponses, '')
+loopList(fallbackhints, outputfallbackhints, '')
+
+const json2csv = require('json2csv').parse
+const fields = ['key','response']
+const opts = { fields }
+
+const responsePath = path.resolve(__dirname, '../exported_responses.csv')
+fs.writeFile(responsePath, json2csv(outputresponses, opts), (err) => {
+	if (err) throw err
+	console.log(responsePath, 'has been saved!')
+})
+
+const fallbackHintsPath = path.resolve(__dirname, '../exported_fallbackhints.csv')
+fs.writeFile(fallbackHintsPath, json2csv(outputfallbackhints, opts), (err) => {
+	if (err) throw err
+	console.log(fallbackHintsPath, 'has been saved!')
+})

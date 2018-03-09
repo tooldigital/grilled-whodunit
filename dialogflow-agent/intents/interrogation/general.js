@@ -1,6 +1,6 @@
-//General Interrogation
-const keys = require('../../../functions/src/intent-keys')
-const contexts = require('../../../functions/src/context-keys')
+// General Interrogation
+const keys = require('../../../functions/src/config/intent-keys')
+const contexts = require('../../../functions/src/config/context-keys')
 
 const betsyParam = { name: 'betsy', opts: { required: false } }
 const intents = {
@@ -174,10 +174,8 @@ const intents = {
 		outputContexts: [contexts.tellabout],
 	},
 
-
 	//////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////
-
 
 	[keys.TALKABOUTMURDER]: {
 		userPhrases: [
@@ -361,12 +359,8 @@ const intents = {
 		outputContexts: [contexts.whatthinkothersuspect],
 	},
 
-
-
-
-
-	[keys.YOUWANTTOKILLBETSY]: {  
-		"userPhrases": [  
+	[keys.YOUWANTTOKILLBETSY]: {
+		userPhrases: [
 			"did you want to kill Betsy",
 			"so did you want Betsy dead",
 			"did you want Betsy dead",
@@ -377,58 +371,59 @@ const intents = {
 			"did it make you want to kill her",
 		],
 	},
-	[keys.WHOBETSYENEMIES]: {  
-		"userPhrases": [  
+	[keys.WHOBETSYENEMIES]: {
+		userPhrases: [
 			"who were her enemies",
 			"who were Betsy's enemies",
 		],
 	},
-	[keys.WEREYOUALONE]: {  
-		"userPhrases": [  
+	[keys.WEREYOUALONE]: {
+		userPhrases: [
 			"were you alone",
 			"who are you with",
 			"who else was with you",
 			"who were you with",
 		],
 	},
-	[keys.WHENBUYRECIPE]: {  
-		"userPhrases": [  
+	[keys.WHENBUYRECIPE]: {
+		userPhrases: [
 			"when did she buy the recipe",
 		],
 	},
-	[keys.CONFIRMALIBI]: {  
-		"userPhrases": [  
+	[keys.CONFIRMALIBI]: {
+		userPhrases: [
 			"can anyone verify that you were reading a book",
 		],
 	},
-	[keys.WHENHEARMURDER]: {  
-		"userPhrases": [  
+	[keys.WHENHEARMURDER]: {
+		userPhrases: [
 			"when did you find out she died",
 		],
 	},
-	[keys.FIGHTWITHBETSY]: {  
-		"userPhrases": [  
+	[keys.FIGHTWITHBETSY]: {
+		userPhrases: [
 			"did you fight with Betsy",
 		],
 	},
-	[keys.WHOOTHERSUSPECT]: {  
-		"userPhrases": [  
-			"who is ",
-			"who's your ",
+	[keys.WHOOTHERSUSPECT]: {
+		userPhrases: [
+			"who is @suspect",
+			"who's your @suspect",
 		],
+		parameters: [{ name: 'suspect' }],
 	},
-	[keys.WITHOTHERSUSPECT]: {  
-		"userPhrases": [  
+	[keys.WITHOTHERSUSPECT]: {
+		userPhrases: [
 			"was your boyfriend with you on the night of the murder",
 		],
 	},
-	[keys.OTHERSUSPECTANGRYBETSY]: {  
-		"userPhrases": [  
+	[keys.OTHERSUSPECTANGRYBETSY]: {
+		userPhrases: [
 			"did your boyfriend hate Betsy",
 			"was Pete angry with Betsy",
 		],
 	},
-   
+ 
 }
 
 Object.keys(intents).forEach((k) => {

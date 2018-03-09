@@ -22,7 +22,7 @@ const yargs = require('yargs')
 
 const path = require('path')
 const fs = require('fs')
-const run = require('./api').run
+const run = require('../lib/api').run
 
 const args = yargs.argv
 const operation = args._[0] // post, put, get, delete

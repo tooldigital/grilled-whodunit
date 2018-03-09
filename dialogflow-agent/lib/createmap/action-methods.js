@@ -1,10 +1,9 @@
 /* global console, __dirname*/
-// action methods
 
 const fs = require('fs-extra')
 const path = require('path')
 const utils = require('./utils')
-const actionKeyPath = path.resolve(__dirname, '../../functions/src/action-keys.js')
+const actionKeyPath = path.resolve(__dirname, '../../../functions/src/config/action-keys.js')
 const actionKeys = require(actionKeyPath)
 
 module.exports = {
@@ -30,7 +29,7 @@ module.exports = {
 		if(!list.forEach) return console.error('The input list must be structured as an array')
 		let output = utils.buildUniqueKeys(list, actionKeys, 'action')
 		output = JSON.stringify(output).split('[').join('[\n\n\t').split(']').join('\n\n]').split(',').join(',\n\t')
-		fs.outputFile(path.resolve(__dirname, '../new_mappings/action-keys.js'), output, (err) => {
+		fs.outputFile(path.resolve(__dirname, '../../new_mappings/action-keys.js'), output, (err) => {
 			if (err) throw err
 			console.log('A new actions file has been updated!')
 		})
