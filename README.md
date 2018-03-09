@@ -5,13 +5,14 @@
 
 ## Concept
 
-We wanted to create a deep and multifaceted experience that explores the SSML capabilities of the Google Assistant. So to do it, we created Grilled: Murder Mystery. It’s a murder mystery built using the Actions on Google platform. The user takes on the role of a detective who's been called in to crack the case. Along the way he or she has to interview 4 suspects, and each of them seems to have their own compelling motive for committing the crime. The goal is to interrogate each suspect, gather evidence and ultimately solve the murder.
+We wanted to create a deep and multifaceted experience that explores the SSML capabilities of the Google Assistant. So to do it, we created [Grilled: Murder Mystery](https://assistant.google.com/services/a/uid/000000224afcf809?hl=en). It’s a murder mystery built using the Actions on Google platform. The user takes on the role of a detective who's been called in to crack the case. Along the way he or she has to interview 4 suspects, and each of them seems to have their own compelling motive for committing the crime. The goal is to interrogate each suspect, gather evidence and ultimately solve the murder.
 
 ![press charges](./docs/press-charges.gif)
 
 ## Writing the Story
 
 While you can script a murder mystery, it’s impossible to guess which questions users might ask. So how do you account for it? You could take a brute-force approach and write responses until your fingers bleed, but that's not sustainable (or even ethical). Instead, our approach creates a story with responses that leads the user organically from one question to the next, providing a safety net in case they get lost.
+
 We started out by visualizing the story, and interrogations, with mind maps.
 
 ![mindmap](./docs/mindmap.png)
@@ -48,7 +49,7 @@ Or if they already know that it's Constance...
 
 ### Gracefully Repairing the Conversation
 
-And in case the user gets stuck, they’re not alone. Police Chief Hawkins serves as his or her partner, stepping in from time to time to give advice on how to conduct the interrogation. This mechanic is our way of repairing the conversation when the user asks something irrelevant, or something we don't have a response for.
+And in case the user gets stuck, they’re not alone. Police Chief Hawkins serves as his or her partner, stepping in from time to time to give advice on how to conduct the interrogation. This mechanic is our way of [repairing the conversation](https://developers.google.com/actions/design/conversation-repair) when the user asks something irrelevant, or something we don't have a response for.
 
 For example, if the user is drawing a blank and doesn’t respond, Hawkins jumps in and guides the user back to a more productive line of questioning.
 
